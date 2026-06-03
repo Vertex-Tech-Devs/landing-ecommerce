@@ -1,0 +1,259 @@
+<section class="pricing-section">
+  <!-- Glowing Background Orbs -->
+  <div class="bg-glow bg-glow-purple"></div>
+  <div class="bg-glow bg-glow-blue"></div>
+
+  <!-- Checkbox Toggle linked to reactive state -->
+  <input 
+    type="checkbox" 
+    id="billing-toggle" 
+    class="billing-toggle-input" 
+    [checked]="billingPeriod() === 'yearly'" 
+    (change)="toggleBilling()" 
+  />
+
+  <div class="pricing-container">
+    <!-- Header -->
+    <div class="pricing-header">
+      <div class="premium-badge">
+        <span class="badge-tag">PLANES</span>
+        <span class="badge-text">Precios claros y sin sorpresas</span>
+      </div>
+      
+      <h2 class="section-title">
+        Elige la potencia que tu <span class="text-gradient">e-commerce</span> necesita
+      </h2>
+      
+      <p class="section-subtitle">
+        Todos nuestros planes incluyen almacenamiento en la nube ultrarrápido y cifrado perimetral. Comienza a vender hoy mismo.
+      </p>
+
+      
+      <div class="toggle-wrapper">
+        <span class="toggle-label label-monthly">Mensual</span>
+        <label for="billing-toggle" class="toggle-slider" aria-label="Cambiar tipo de facturación">
+          <span class="toggle-knob"></span>
+        </label>
+        <span class="toggle-label label-yearly">Anual</span>
+        <span class="discount-badge">Ahorra 20%</span>
+      </div>
+    </div>
+
+    
+    <div class="pricing-grid">
+      
+      
+      <div class="pricing-card basic glass-panel">
+        <div class="card-header">
+          <div class="plan-icon-wrapper icon-basic">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m21 7.5-9-5.25L3 7.5m18 0-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
+            </svg>
+          </div>
+          <h3 class="plan-title">Esencial</h3>
+          <p class="plan-description">Para tiendas nuevas y emprendedores que inician su camino digital.</p>
+        </div>
+
+        <div class="card-price">
+          <div class="price-amount">
+            <span class="currency">$</span>
+            <span class="number">{{ pricingPlans()[0].price }}</span>
+            <span class="period">{{ pricingPlans()[0].billingPeriodText }}</span>
+          </div>
+          <span class="billing-info">{{ pricingPlans()[0].yearlySavingText }}</span>
+        </div>
+
+        <div class="card-divider"></div>
+
+        <ul class="features-list">
+          <li class="feature-item">
+            <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+            </svg>
+            <span>1 canal de venta integrado</span>
+          </li>
+          <li class="feature-item">
+            <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+            </svg>
+            <span>Hasta 1,000 pedidos/mes</span>
+          </li>
+          <li class="feature-item">
+            <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+            </svg>
+            <span>Soporte estándar por email</span>
+          </li>
+          <li class="feature-item">
+            <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+            </svg>
+            <span>Analíticas básicas de ventas</span>
+          </li>
+          <li class="feature-item">
+            <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+            </svg>
+            <span>SSL gratis y subdominio</span>
+          </li>
+        </ul>
+
+        <div class="card-footer">
+          <button class="btn btn-secondary">Comenzar gratis</button>
+        </div>
+      </div>
+
+      <!-- CARD 2: PRO (DESTACADO PREMIUM) -->
+      <div class="pricing-card pro glass-panel">
+        <!-- Floating highlight badge -->
+        <span class="popular-tag">MÁS POPULAR</span>
+        
+        <!-- Glowing background behind the card -->
+        <div class="card-glow"></div>
+
+        <div class="card-header">
+          <div class="plan-icon-wrapper icon-pro">
+            <!-- Sleek SVG: Rocket representing growth and velocity -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 0 1-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 0 0 6.16-12.12A14.98 14.98 0 0 0 9.59 2.62 14.98 14.98 0 0 0 3.43 14.74a14.98 14.98 0 0 0 12.16-1.57Zm0 0-4.8 4.8m0 0a6 6 0 0 1-7.38-5.84h4.8m0 0 5.4-5.4M13.5 7.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
+            </svg>
+          </div>
+          <h3 class="plan-title">Crecimiento Pro</h3>
+          <p class="plan-description">La suite completa para escalar ventas con automatización avanzada e IA.</p>
+        </div>
+
+        <div class="card-price">
+          <div class="price-amount">
+            <span class="currency">$</span>
+            <span class="number">{{ pricingPlans()[1].price }}</span>
+            <span class="period">{{ pricingPlans()[1].billingPeriodText }}</span>
+          </div>
+          <span class="billing-info">{{ pricingPlans()[1].yearlySavingText }}</span>
+        </div>
+
+        <div class="card-divider"></div>
+
+        <ul class="features-list">
+          <li class="feature-item">
+            <svg class="check-icon highlighted" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+            </svg>
+            <span class="highlighted-text">Canales de venta ilimitados</span>
+          </li>
+          <li class="feature-item">
+            <svg class="check-icon highlighted" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+            </svg>
+            <span>Hasta 10,000 pedidos/mes</span>
+          </li>
+          <li class="feature-item">
+            <svg class="check-icon highlighted" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+            </svg>
+            <span>Soporte prioritario 24/7</span>
+          </li>
+          <li class="feature-item">
+            <svg class="check-icon highlighted" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+            </svg>
+            <span class="feature-badge-container">
+              Analíticas predictivas IA 
+              <span class="feature-tag">IA</span>
+            </span>
+          </li>
+          <li class="feature-item">
+            <svg class="check-icon highlighted" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+            </svg>
+            <span>Recuperación de carritos avanzados</span>
+          </li>
+          <li class="feature-item">
+            <svg class="check-icon highlighted" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+            </svg>
+            <span>Automatización de inventario</span>
+          </li>
+          <li class="feature-item">
+            <svg class="check-icon highlighted" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+            </svg>
+            <span>Acceso completo a la API</span>
+          </li>
+        </ul>
+
+        <div class="card-footer">
+          <button class="btn btn-primary">Iniciar prueba de 14 días</button>
+        </div>
+      </div>
+
+      <!-- CARD 3: ENTERPRISE -->
+      <div class="pricing-card enterprise glass-panel">
+        <div class="card-header">
+          <div class="plan-icon-wrapper icon-enterprise">
+            <!-- Sleek SVG: Globe / Grid network representing global enterprise scale -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25" />
+            </svg>
+          </div>
+          <h3 class="plan-title">Corporativo</h3>
+          <p class="plan-description">Soluciones de infraestructura dedicada para grandes volúmenes de transacciones.</p>
+        </div>
+
+        <div class="card-price">
+          <div class="price-amount">
+            <span class="currency">$</span>
+            <span class="number">{{ pricingPlans()[2].price }}</span>
+            <span class="period">{{ pricingPlans()[2].billingPeriodText }}</span>
+          </div>
+          <span class="billing-info">{{ pricingPlans()[2].yearlySavingText }}</span>
+        </div>
+
+        <div class="card-divider"></div>
+
+        <ul class="features-list">
+          <li class="feature-item">
+            <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+            </svg>
+            <span>Pedidos y transacciones ilimitados</span>
+          </li>
+          <li class="feature-item">
+            <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+            </svg>
+            <span>SLA garantizado de 99.99%</span>
+          </li>
+          <li class="feature-item">
+            <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+            </svg>
+            <span>Gerente de cuenta dedicado</span>
+          </li>
+          <li class="feature-item">
+            <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+            </svg>
+            <span>Servidor perimetral dedicado</span>
+          </li>
+          <li class="feature-item">
+            <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+            </svg>
+            <span>Integraciones ERP (SAP, Oracle)</span>
+          </li>
+          <li class="feature-item">
+            <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+            </svg>
+            <span>Auditorías SOC2 personalizadas</span>
+          </li>
+        </ul>
+
+        <div class="card-footer">
+          <button class="btn btn-secondary">Contactar ventas</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

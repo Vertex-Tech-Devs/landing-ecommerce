@@ -1,0 +1,222 @@
+<section class="features-section">
+  <!-- Glowing Background Orbs -->
+  <div class="bg-glow bg-glow-purple"></div>
+  <div class="bg-glow bg-glow-blue"></div>
+  
+  <div class="features-container">
+    <!-- Header -->
+    <header class="features-header">
+      <div class="premium-badge">
+        <span class="badge-tag">CARACTERÍSTICAS</span>
+        <span>Tecnología de Vanguardia</span>
+      </div>
+      <h2 class="section-title">
+        Todo lo que necesitas para <span class="text-gradient">escalar al infinito</span>
+      </h2>
+      <p class="section-subtitle">
+        Una infraestructura de clase mundial con herramientas avanzadas para optimizar tus conversiones, automatizar flujos de trabajo y proteger tu información.
+      </p>
+    </header>
+    <!-- Bento Grid -->
+    <div class="bento-grid">
+      @for (feature of features(); track feature.id) {
+        <article [class]="['bento-card', feature.cardClass, feature.gridClass]">
+          <div class="card-glow-radial"></div>
+          <div class="card-inner">
+            <div class="card-info">
+              <div class="card-header-meta">
+                <div [class]="'feature-icon ' + feature.iconClass">
+                  @switch (feature.icon) {
+                    @case ('ai') {
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+                        <circle cx="12" cy="12" r="4"/>
+                      </svg>
+                    }
+                    @case ('security') {
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                      </svg>
+                    }
+                    @case ('integrations') {
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polyline points="16 18 22 12 16 6"/>
+                        <polyline points="8 6 2 12 8 18"/>
+                      </svg>
+                    }
+                    @case ('analytics') {
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <line x1="18" y1="20" x2="18" y2="10"/>
+                        <line x1="12" y1="20" x2="12" y2="4"/>
+                        <line x1="6" y1="20" x2="6" y2="14"/>
+                      </svg>
+                    }
+                    @case ('automations') {
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                        <line x1="12" y1="22.08" x2="12" y2="12"/>
+                      </svg>
+                    }
+                    @case ('developer') {
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polyline points="4 17 10 11 4 5"/>
+                        <line x1="12" y1="19" x2="20" y2="19"/>
+                      </svg>
+                    }
+                  }
+                </div>
+                <span [class]="'feature-badge ' + feature.badgeClass">{{ feature.badge }}</span>
+              </div>
+              <h3 class="card-title">{{ feature.title }}</h3>
+              <p class="card-description">{{ feature.description }}</p>
+            </div>
+            
+            @switch (feature.icon) {
+              @case ('ai') {
+                <div class="card-visual visual-ai">
+                  <div class="ai-nodes-container">
+                    <div class="node node-center">
+                      <div class="pulse-ring"></div>
+                    </div>
+                    <div class="node node-1"></div>
+                    <div class="node node-2"></div>
+                    <div class="node node-3"></div>
+                    <div class="node node-4"></div>
+                    <svg class="node-connections" width="100%" height="100%" aria-hidden="true">
+                      <line x1="50%" y1="50%" x2="20%" y2="20%" class="connection-line line-1" />
+                      <line x1="50%" y1="50%" x2="80%" y2="25%" class="connection-line line-2" />
+                      <line x1="50%" y1="50%" x2="75%" y2="75%" class="connection-line line-3" />
+                      <line x1="50%" y1="50%" x2="25%" y2="80%" class="connection-line line-4" />
+                    </svg>
+                  </div>
+                </div>
+              }
+              @case ('security') {
+                <div class="card-visual visual-security">
+                  <div class="security-radar">
+                    <div class="radar-scan"></div>
+                    <div class="radar-circles">
+                      <div class="radar-circle circle-1"></div>
+                      <div class="radar-circle circle-2"></div>
+                      <div class="radar-circle circle-3"></div>
+                    </div>
+                    <div class="radar-shield">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              }
+              @case ('integrations') {
+                <div class="card-visual visual-integrations">
+                  <div class="integration-grid">
+                    <div class="connector-line vertical"></div>
+                    <div class="connector-line horizontal"></div>
+                    
+                    <div class="app-icon main-app">
+                      <span>AG</span>
+                      <div class="ripple"></div>
+                    </div>
+                    
+                    <div class="app-icon app-slack">
+                      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+                        <path fill="#e01e5a" d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523 2.528 2.528 0 0 1-2.522-2.523 2.528 2.528 0 0 1 2.522-2.52h2.52v2.52zm1.261 0a2.528 2.528 0 0 1 2.52-2.52h5.043a2.528 2.528 0 0 1 2.522 2.52v5.042a2.528 2.528 0 0 1-2.522 2.52H8.823a2.528 2.528 0 0 1-2.52-2.52v-5.042z"/>
+                        <path fill="#36c5f0" d="M8.823 5.043a2.528 2.528 0 0 1-2.52-2.52 2.528 2.528 0 0 1 2.52-2.522 2.528 2.528 0 0 1 2.522 2.522v2.52h-2.522zm0 1.261a2.528 2.528 0 0 1 2.522 2.52v5.043a2.528 2.528 0 0 1-2.522 2.52H3.78a2.528 2.528 0 0 1-2.52-2.52V8.824a2.528 2.528 0 0 1 2.52-2.52h5.043z"/>
+                        <path fill="#2eb67d" d="M18.958 8.824a2.528 2.528 0 0 1 2.522-2.52 2.528 2.528 0 0 1 2.52 2.52 2.528 2.528 0 0 1-2.52 2.522h-2.522v-2.522zm-1.261 0a2.528 2.528 0 0 1-2.52 2.522h-5.043a2.528 2.528 0 0 1-2.522-2.522V3.78a2.528 2.528 0 0 1 2.522-2.52h5.043a2.528 2.528 0 0 1 2.52 2.52v5.043z"/>
+                        <path fill="#ecb22e" d="M15.177 18.957a2.528 2.528 0 0 1 2.52 2.52 2.528 2.528 0 0 1-2.52 2.523 2.528 2.528 0 0 1-2.522-2.523v-2.52h2.522zm0-1.261a2.528 2.528 0 0 1-2.522-2.52v-5.043a2.528 2.528 0 0 1 2.522-2.52h5.043a2.528 2.528 0 0 1 2.52 2.52v5.043a2.528 2.528 0 0 1-2.52 2.52h-5.043z"/>
+                      </svg>
+                    </div>
+                    
+                    <div class="app-icon app-github">
+                      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                      </svg>
+                    </div>
+
+                    <div class="app-icon app-stripe">
+                      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+                        <path d="M13.994 10.093c0-1.127-.92-1.642-2.483-1.642-2.146 0-4.328.797-4.328.797l-.626-2.138s2.3-.92 4.962-.92c3.486 0 5.485 1.604 5.485 4.542 0 4.29-5.882 4.88-5.882 6.577 0 .546.478.784 1.343.784 2.298 0 4.57-.96 4.57-.96l.638 2.142s-2.09.97-5.187.97c-3.415 0-5.35-1.745-5.35-4.543.003-4.373 5.858-4.996 5.858-6.609zm-2.046-6.495L15.228 0h3.293l-3.28 3.598h-3.293z"/>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              }
+              @case ('analytics') {
+                <div class="card-visual visual-analytics">
+                  <div class="mock-chart-container">
+                    <div class="chart-y-axis">
+                      <span>100k</span>
+                      <span>50k</span>
+                      <span>0</span>
+                    </div>
+                    <div class="mock-chart">
+                      <div class="chart-bar bar-1"><div class="bar-fill"></div></div>
+                      <div class="chart-bar bar-2"><div class="bar-fill"></div></div>
+                      <div class="chart-bar bar-3"><div class="bar-fill"></div></div>
+                      <div class="chart-bar bar-4"><div class="bar-fill"></div></div>
+                      <div class="chart-bar bar-5"><div class="bar-fill"></div></div>
+                      <div class="chart-bar bar-6"><div class="bar-fill"></div></div>
+                    </div>
+                  </div>
+                  <div class="live-indicator">
+                    <span class="dot"></span>
+                    <span class="label">EN VIVO</span>
+                  </div>
+                </div>
+              }
+              @case ('automations') {
+                <div class="card-visual visual-automations">
+                  <div class="automation-flow">
+                    <div class="flow-step step-trigger">
+                      <div class="step-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                          <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                      </div>
+                      <span>Disparador</span>
+                    </div>
+                    <div class="flow-connection">
+                      <div class="connection-pulse"></div>
+                    </div>
+                    <div class="flow-step step-action">
+                      <div class="step-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                          <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                          <polyline points="2 17 12 22 22 17"/>
+                          <polyline points="2 12 12 17 22 12"/>
+                        </svg>
+                      </div>
+                      <span>Acción</span>
+                    </div>
+                  </div>
+                </div>
+              }
+              @case ('developer') {
+                <div class="card-visual visual-developer">
+                  <div class="mock-terminal">
+                    <div class="terminal-header">
+                      <span class="window-dot red"></span>
+                      <span class="window-dot yellow"></span>
+                      <span class="window-dot green"></span>
+                      <span class="terminal-title">bash</span>
+                    </div>
+                    <div class="terminal-body">
+                      <div class="line"><span class="prompt">$</span> npm install @antigravity/sdk</div>
+                      <div class="line success">✓ installed in 1.4s</div>
+                      <div class="line"><span class="prompt">$</span> ag init --key=live_sec</div>
+                      <div class="line blink-cursor">_</div>
+                    </div>
+                  </div>
+                </div>
+              }
+            }
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

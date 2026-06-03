@@ -1,0 +1,108 @@
+<section class="cta-section" id="cta-section">
+  <!-- Glowing Background Orbs -->
+  <div class="bg-glow bg-glow-purple" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow-blue" aria-hidden="true"></div>
+
+  <div class="cta-container">
+    <!-- Premium Badge -->
+    <div class="premium-badge">
+      <span class="badge-tag">ÚNETE HOY</span>
+      <span class="badge-text">Lleva tu e-commerce al siguiente nivel</span>
+    </div>
+
+    <!-- Headers -->
+    <div class="cta-header">
+      <h2 class="section-title">
+        ¿Listo para llevar la presencia digital de tu negocio <span class="text-gradient">al siguiente nivel?</span>
+      </h2>
+      <p class="section-subtitle">
+        Ingresa tu correo electrónico para obtener acceso anticipado y descubrir cómo nuestra tecnología puede automatizar tus ventas.
+      </p>
+    </div>
+
+    <!-- Centered Glassmorphic Form Card -->
+    <div class="cta-card glass-panel animate-float-slow">
+      <div class="card-glow" aria-hidden="true"></div>
+      
+      <form class="cta-form" (ngSubmit)="onSubmit()">
+        <div class="form-grid">
+          <!-- Input Company Name -->
+          <div class="form-group">
+            <label for="company-name" class="form-label">Nombre de la empresa</label>
+            <div class="input-wrapper">
+              <span class="input-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h18v18H3V3z" />
+                </svg>
+              </span>
+              <input 
+                type="text" 
+                id="company-name" 
+                name="companyName"
+                placeholder="Ej. Acme Corp" 
+                class="form-input" 
+                required 
+                autocomplete="organization"
+                [(ngModel)]="companyName"
+              />
+              <span class="input-border-glow"></span>
+            </div>
+          </div>
+
+          <!-- Input Email Corporativo -->
+          <div class="form-group">
+            <label for="corporate-email" class="form-label">Email corporativo</label>
+            <div class="input-wrapper">
+              <span class="input-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0l-7.5-4.615m19.5 0v-2.43a2.25 2.25 0 00-1.07-1.916l-7.5-4.615a2.25 2.25 0 00-2.36 0L3.32 8.91" />
+                </svg>
+              </span>
+              <input 
+                type="email" 
+                id="corporate-email" 
+                name="email"
+                placeholder="ejemplo@empresa.com" 
+                class="form-input" 
+                required 
+                autocomplete="email"
+                [(ngModel)]="email"
+              />
+              <span class="input-border-glow"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-submit" [disabled]="!isFormValid()">
+          <span class="btn-text">Comenzar prueba gratuita</span>
+          <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+          </svg>
+        </button>
+      </form>
+      
+      <!-- Trust badges/text -->
+      <div class="form-footer">
+        <span class="footer-item">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="check-icon" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+          </svg>
+          Prueba de 14 días gratis
+        </span>
+        <span class="footer-item">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="check-icon" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+          </svg>
+          No requiere tarjeta
+        </span>
+        <span class="footer-item">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="check-icon" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+          </svg>
+          Cancela cuando quieras
+        </span>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,227 @@
+<section class="hero-section">
+  <!-- Glowing Background Orbs -->
+  <div class="bg-glow bg-glow-purple"></div>
+  <div class="bg-glow bg-glow-blue"></div>
+
+  <div class="hero-container">
+    
+    <div class="hero-content">
+      
+      <!-- Premium Badge -->
+      <a href="#features" class="premium-badge">
+        <span class="badge-tag">NUEVO</span>
+        <span class="badge-text">Presentando Antigravity OS v2.0</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="badge-arrow">
+          <path fill-rule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.638L10.23 5.29a.75.75 0 1 1 1.04-1.08l5.5 5.25a.75.75 0 0 1 0 1.08l-5.5 5.25a.75.75 0 1 1-1.04-1.08l4.158-3.96H3.75A.75.75 0 0 1 3 10Z" clip-rule="evenodd" />
+        </svg>
+      </a>
+
+      <!-- Title & Description -->
+      <h1 class="hero-title">
+        Tu tienda online <span class="text-gradient">premium</span>, autogestionable y sin depender de programadores
+      </h1>
+      <p class="hero-subtitle">
+        Diseño de alta gama adaptable a tu marca, velocidad de carga instantánea y control total de tus ventas. La solución definitiva para indumentaria, gastronomía o tecnología.
+      </p>
+
+      <!-- CTAs -->
+      <div class="hero-ctas">
+        <button class="btn btn-primary">
+          <span>Comenzar gratis</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="btn-icon">
+            <path fill-rule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.638L10.23 5.29a.75.75 0 1 1 1.04-1.08l5.5 5.25a.75.75 0 0 1 0 1.08l-5.5 5.25a.75.75 0 1 1-1.04-1.08l4.158-3.96H3.75A.75.75 0 0 1 3 10Z" clip-rule="evenodd" />
+          </svg>
+        </button>
+        <button class="btn btn-secondary">
+          <span>Ver Demo en vivo</span>
+        </button>
+      </div>
+
+      <!-- Trust Badges / Stats -->
+      <div class="hero-stats">
+        @for (stat of stats; track stat.label) {
+          <div class="stat-card">
+            <span class="stat-value">{{ stat.value }}</span>
+            <span class="stat-label">{{ stat.label }}</span>
+          </div>
+        }
+      </div>
+
+    </div>
+
+    <!-- Hero Right: Interactive Premium Mockup -->
+    <div class="hero-visual">
+      <div class="mockup-frame glass-panel">
+        
+        <!-- Window Controls -->
+        <div class="mockup-header">
+          <div class="window-dots">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+          </div>
+          <div class="mockup-search">
+            <span class="search-url">https://admin.antigravity.io/dashboard</span>
+          </div>
+        </div>
+
+        <!-- Dashboard Body -->
+        <div class="mockup-body">
+          
+          <!-- Mockup Sidebar -->
+          <aside class="mockup-sidebar">
+            <div class="logo-placeholder">
+              <span class="logo-dot"></span>
+              <span class="logo-text">Antigravity</span>
+            </div>
+            <nav class="sidebar-nav">
+              <button 
+                [class.active]="activeCategory === 'analytics'" 
+                (click)="setActiveCategory('analytics')" 
+                class="nav-item">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z" />
+                </svg>
+                <span>Métricas</span>
+              </button>
+              <button 
+                [class.active]="activeCategory === 'sales'" 
+                (click)="setActiveCategory('sales')" 
+                class="nav-item">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5h16.5M5.25 4.5V18.75m13.5-14.25v14.25m-10.5 0h7.5" />
+                </svg>
+                <span>Ventas</span>
+              </button>
+              <button 
+                [class.active]="activeCategory === 'users'" 
+                (click)="setActiveCategory('users')" 
+                class="nav-item">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.109A11.386 11.386 0 0 1 10.089 20.4a11.386 11.386 0 0 1-4.918-1.163V19.13c0-1.113.285-2.16.786-3.07m7.876-8.868a9 9 0 0 0-7.876 0C5.232 7.747 4.5 9.18 4.5 10.748v2.24c0 .837.46 1.58 1.155 1.998a10.505 10.505 0 0 0 8.69 0c.695-.417 1.155-1.16 1.155-1.998v-2.24c0-1.568-.732-3.001-2.39-3.584Z" />
+                </svg>
+                <span>Clientes</span>
+              </button>
+            </nav>
+          </aside>
+
+          <!-- Mockup Main Area -->
+          <main class="mockup-main">
+            
+            <!-- Category: Analytics (Default) -->
+            @if (activeCategory === 'analytics') {
+              <div class="view-content fade-in">
+                <div class="metric-row">
+                  <div class="metric-pill glass-card">
+                    <span class="label">Ingresos Netos</span>
+                    <span class="value">$142,384.50</span>
+                    <span class="trend up">+14.2%</span>
+                  </div>
+                  <div class="metric-pill glass-card">
+                    <span class="label">Tasa Conversión</span>
+                    <span class="value">4.82%</span>
+                    <span class="trend up">+1.1%</span>
+                  </div>
+                </div>
+
+                <!-- Custom SVG Graph -->
+                <div class="graph-card glass-card">
+                  <div class="graph-header">
+                    <span class="graph-title">Rendimiento en tiempo real</span>
+                    <span class="graph-legend">Ingresos mensuales (k$)</span>
+                  </div>
+                  <div class="graph-visual">
+                    <svg viewBox="0 0 400 150" class="chart-svg">
+                      <defs>
+                        <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stop-color="var(--color-primary)" stop-opacity="0.3"/>
+                          <stop offset="100%" stop-color="var(--color-primary)" stop-opacity="0.0"/>
+                        </linearGradient>
+                      </defs>
+                      <path d="M 0,130 Q 50,110 80,70 T 160,80 T 240,40 T 320,60 T 400,20 L 400,150 L 0,150 Z" fill="url(#chartGradient)" />
+                      <path d="M 0,130 Q 50,110 80,70 T 160,80 T 240,40 T 320,60 T 400,20" fill="none" stroke="var(--color-primary)" stroke-width="3" />
+                      <circle cx="240" cy="40" r="5" fill="var(--color-primary)" />
+                      <circle cx="400" cy="20" r="5" fill="var(--color-primary)" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            }
+
+            <!-- Category: Sales -->
+            @if (activeCategory === 'sales') {
+              <div class="view-content fade-in">
+                <div class="sales-list glass-card">
+                  <span class="section-title">Transacciones Recientes</span>
+                  <div class="tx-table">
+                    @for (tx of recentTransactions; track tx.id) {
+                      <div class="tx-row">
+                        <div class="tx-info">
+                          <span class="tx-user">{{ tx.user }}</span>
+                          <span class="tx-id">{{ tx.id }}</span>
+                        </div>
+                        <div class="tx-meta">
+                          <span class="tx-amount" [class.success]="tx.amount.startsWith('+')">{{ tx.amount }}</span>
+                          <span class="tx-time">{{ tx.time }}</span>
+                        </div>
+                      </div>
+                    }
+                  </div>
+                </div>
+              </div>
+            }
+
+            <!-- Category: Users -->
+            @if (activeCategory === 'users') {
+              <div class="view-content fade-in">
+                <div class="users-map glass-card">
+                  <span class="section-title">Distribución Global</span>
+                  <div class="map-container">
+                    <!-- Dot matrix pattern simulating global distribution -->
+                    <div class="map-grid">
+                      <span class="map-pin pin-us animate-pulse-glow"></span>
+                      <span class="map-pin pin-eu animate-pulse-glow"></span>
+                      <span class="map-pin pin-sa animate-pulse-glow"></span>
+                      <span class="map-pin pin-as animate-pulse-glow"></span>
+                    </div>
+                    <p class="map-desc">Monitoreando conexiones activas desde 12 locaciones periféricas.</p>
+                  </div>
+                </div>
+              </div>
+            }
+
+          </main>
+        </div>
+
+      </div>
+
+      <!-- Floating Decorative Cards -->
+      <div class="floating-card card-revenue animate-float-slow glass-card">
+        <div class="floating-icon icon-success">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="20">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+          </svg>
+        </div>
+        <div class="floating-details">
+          <span class="floating-title">Ventas de hoy</span>
+          <span class="floating-value">$8,490</span>
+        </div>
+      </div>
+
+      <div class="floating-card card-users animate-float-fast glass-card">
+        <div class="avatar-stack">
+          <span class="avatar bg-blue">U</span>
+          <span class="avatar bg-purple">E</span>
+          <span class="avatar bg-pink">S</span>
+        </div>
+        <div class="floating-details">
+          <span class="floating-title">Activos ahora</span>
+          <span class="floating-value">1,429 en línea</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
