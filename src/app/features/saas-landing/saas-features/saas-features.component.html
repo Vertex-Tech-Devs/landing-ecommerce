@@ -29,40 +29,30 @@
                   @switch (feature.icon) {
                     @case ('ai') {
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
-                        <circle cx="12" cy="12" r="4"/>
+                        <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+                        <line x1="12" y1="18" x2="12.01" y2="18" />
                       </svg>
                     }
                     @case ('security') {
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-                        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                        <rect x="3" y="3" width="18" height="18" rx="2" />
+                        <path d="M9 3v18" />
+                        <path d="M3 9h6" />
+                        <path d="M3 15h6" />
+                        <path d="M13 9h4" />
+                        <path d="M13 15h4" />
                       </svg>
                     }
                     @case ('integrations') {
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <polyline points="16 18 22 12 16 6"/>
-                        <polyline points="8 6 2 12 8 18"/>
+                        <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+                        <line x1="1" y1="10" x2="23" y2="10"/>
                       </svg>
                     }
                     @case ('analytics') {
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <line x1="18" y1="20" x2="18" y2="10"/>
-                        <line x1="12" y1="20" x2="12" y2="4"/>
-                        <line x1="6" y1="20" x2="6" y2="14"/>
-                      </svg>
-                    }
-                    @case ('automations') {
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
-                        <line x1="12" y1="22.08" x2="12" y2="12"/>
-                      </svg>
-                    }
-                    @case ('developer') {
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <polyline points="4 17 10 11 4 5"/>
-                        <line x1="12" y1="19" x2="20" y2="19"/>
+                        <circle cx="11" cy="11" r="8" />
+                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
                       </svg>
                     }
                   }
@@ -75,148 +65,266 @@
             
             @switch (feature.icon) {
               @case ('ai') {
-                <div class="card-visual visual-ai">
-                  <div class="ai-nodes-container">
-                    <div class="node node-center">
-                      <div class="pulse-ring"></div>
+                <div class="card-visual visual-mobile">
+                  <!-- Mobile frame mockup -->
+                  <div class="phone-mockup">
+                    <div class="phone-notch"></div>
+                    <div class="phone-header">
+                      <span class="phone-logo">VERTEX</span>
+                      <div class="cart-icon-container">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="cart-svg-icon">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                        </svg>
+                        <span class="cart-badge-count">0</span>
+                      </div>
                     </div>
-                    <div class="node node-1"></div>
-                    <div class="node node-2"></div>
-                    <div class="node node-3"></div>
-                    <div class="node node-4"></div>
-                    <svg class="node-connections" width="100%" height="100%" aria-hidden="true">
-                      <line x1="50%" y1="50%" x2="20%" y2="20%" class="connection-line line-1" />
-                      <line x1="50%" y1="50%" x2="80%" y2="25%" class="connection-line line-2" />
-                      <line x1="50%" y1="50%" x2="75%" y2="75%" class="connection-line line-3" />
-                      <line x1="50%" y1="50%" x2="25%" y2="80%" class="connection-line line-4" />
-                    </svg>
+                    
+                    <div class="phone-content-window">
+                      <div class="phone-carousel">
+                        <div class="carousel-track">
+                          <!-- Slide 1 -->
+                          <div class="carousel-item">
+                            <div class="item-img img-shoe-1"></div>
+                            <div class="item-info">
+                              <span class="item-brand">Adidas</span>
+                              <span class="item-name">Superstar Glow</span>
+                              <span class="item-price">$18.500</span>
+                              <button class="add-to-cart-btn">Agregar</button>
+                            </div>
+                          </div>
+                          <!-- Slide 2 -->
+                          <div class="carousel-item">
+                            <div class="item-img img-shoe-2"></div>
+                            <div class="item-info">
+                              <span class="item-brand">Nike</span>
+                              <span class="item-name">Air Max Tech</span>
+                              <span class="item-price">$22.000</span>
+                              <button class="add-to-cart-btn">Agregar</button>
+                            </div>
+                          </div>
+                          <!-- Slide 3 -->
+                          <div class="carousel-item">
+                            <div class="item-img img-shoe-3"></div>
+                            <div class="item-info">
+                              <span class="item-brand">Puma</span>
+                              <span class="item-name">RS-X Retro</span>
+                              <span class="item-price">$16.900</span>
+                              <button class="add-to-cart-btn">Agregar</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <!-- Simulated Hand Cursor -->
+                    <div class="simulated-cursor"></div>
                   </div>
                 </div>
               }
               @case ('security') {
-                <div class="card-visual visual-security">
-                  <div class="security-radar">
-                    <div class="radar-scan"></div>
-                    <div class="radar-circles">
-                      <div class="radar-circle circle-1"></div>
-                      <div class="radar-circle circle-2"></div>
-                      <div class="radar-circle circle-3"></div>
+                <div class="card-visual visual-cms">
+                  <div class="cms-container">
+                    <!-- Left: Admin Panel -->
+                    <div class="cms-panel admin-panel">
+                      <div class="panel-header">
+                        <span class="panel-dot"></span>
+                        <span class="panel-title">CMS Admin</span>
+                      </div>
+                      <div class="admin-form">
+                        <div class="form-group">
+                          <label>Producto</label>
+                          <div class="mock-input text-truncate">Remera Oversize</div>
+                        </div>
+                        <div class="form-group">
+                          <label>Precio</label>
+                          <div class="price-input-container">
+                            <span class="currency">$</span>
+                            <div class="mock-input price-value"></div>
+                          </div>
+                        </div>
+                        <div class="form-group upload-area">
+                          <div class="drop-zone">
+                            <svg class="upload-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                              <polyline points="17 8 12 3 7 8" />
+                              <line x1="12" y1="3" x2="12" y2="15" />
+                            </svg>
+                            <span class="drop-text">Arrastrar foto</span>
+                            <!-- Progress Bar -->
+                            <div class="upload-progress-bar">
+                              <div class="progress-fill"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <div class="radar-shield">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                      </svg>
+                    
+                    <!-- Right: Mini Store Preview -->
+                    <div class="cms-panel store-preview">
+                      <div class="panel-header">
+                        <span class="store-url">/shop</span>
+                      </div>
+                      <div class="shop-grid">
+                        <div class="product-preview-card">
+                          <div class="product-img-container">
+                            <div class="product-img img-placeholder"></div>
+                            <div class="product-img img-uploaded"></div>
+                          </div>
+                          <div class="product-info-mock">
+                            <span class="product-title-mock text-truncate">Remera Oversize</span>
+                            <span class="product-price-mock"></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <!-- Floating Uploading Card -->
+                    <div class="floating-upload-item">
+                      <div class="mini-card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                      </div>
+                      <span>foto_prenda.jpg</span>
                     </div>
                   </div>
                 </div>
               }
               @case ('integrations') {
-                <div class="card-visual visual-integrations">
-                  <div class="integration-grid">
-                    <div class="connector-line vertical"></div>
-                    <div class="connector-line horizontal"></div>
+                <div class="card-visual visual-mp-flow">
+                  <div class="mp-flow-container">
                     
-                    <div class="app-icon main-app">
-                      <span>AG</span>
-                      <div class="ripple"></div>
+                    <!-- Block 1: Product -->
+                    <div class="flow-block block-product">
+                      <div class="block-header">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="block-icon">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                        </svg>
+                        <span class="block-title">Inventario</span>
+                      </div>
+                      <div class="stock-display">
+                        <span class="stock-label">Stock Real</span>
+                        <div class="stock-counter-wrapper">
+                          <span class="stock-count count-1">1 unidad</span>
+                          <span class="stock-count count-0">0 unidades</span>
+                        </div>
+                      </div>
                     </div>
                     
-                    <div class="app-icon app-slack">
-                      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
-                        <path fill="#e01e5a" d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523 2.528 2.528 0 0 1-2.522-2.523 2.528 2.528 0 0 1 2.522-2.52h2.52v2.52zm1.261 0a2.528 2.528 0 0 1 2.52-2.52h5.043a2.528 2.528 0 0 1 2.522 2.52v5.042a2.528 2.528 0 0 1-2.522 2.52H8.823a2.528 2.528 0 0 1-2.52-2.52v-5.042z"/>
-                        <path fill="#36c5f0" d="M8.823 5.043a2.528 2.528 0 0 1-2.52-2.52 2.528 2.528 0 0 1 2.52-2.522 2.528 2.528 0 0 1 2.522 2.522v2.52h-2.522zm0 1.261a2.528 2.528 0 0 1 2.522 2.52v5.043a2.528 2.528 0 0 1-2.522 2.52H3.78a2.528 2.528 0 0 1-2.52-2.52V8.824a2.528 2.528 0 0 1 2.52-2.52h5.043z"/>
-                        <path fill="#2eb67d" d="M18.958 8.824a2.528 2.528 0 0 1 2.522-2.52 2.528 2.528 0 0 1 2.52 2.52 2.528 2.528 0 0 1-2.52 2.522h-2.522v-2.522zm-1.261 0a2.528 2.528 0 0 1-2.52 2.522h-5.043a2.528 2.528 0 0 1-2.522-2.522V3.78a2.528 2.528 0 0 1 2.522-2.52h5.043a2.528 2.528 0 0 1 2.52 2.52v5.043z"/>
-                        <path fill="#ecb22e" d="M15.177 18.957a2.528 2.528 0 0 1 2.52 2.52 2.528 2.528 0 0 1-2.52 2.523 2.528 2.528 0 0 1-2.522-2.523v-2.52h2.522zm0-1.261a2.528 2.528 0 0 1-2.522-2.52v-5.043a2.528 2.528 0 0 1 2.522-2.52h5.043a2.528 2.528 0 0 1 2.52 2.52v5.043a2.528 2.528 0 0 1-2.52 2.52h-5.043z"/>
-                      </svg>
-                    </div>
-                    
-                    <div class="app-icon app-github">
-                      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
-                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                      </svg>
+                    <!-- Connection 1-2 -->
+                    <div class="flow-connector conn-1-2">
+                      <div class="connector-line"></div>
+                      <div class="flow-dot dot-forward"></div>
+                      <div class="flow-dot dot-backward"></div>
                     </div>
 
-                    <div class="app-icon app-stripe">
-                      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
-                        <path d="M13.994 10.093c0-1.127-.92-1.642-2.483-1.642-2.146 0-4.328.797-4.328.797l-.626-2.138s2.3-.92 4.962-.92c3.486 0 5.485 1.604 5.485 4.542 0 4.29-5.882 4.88-5.882 6.577 0 .546.478.784 1.343.784 2.298 0 4.57-.96 4.57-.96l.638 2.142s-2.09.97-5.187.97c-3.415 0-5.35-1.745-5.35-4.543.003-4.373 5.858-4.996 5.858-6.609zm-2.046-6.495L15.228 0h3.293l-3.28 3.598h-3.293z"/>
-                      </svg>
+                    <!-- Block 2: Mercado Pago -->
+                    <div class="flow-block block-mp">
+                      <div class="block-header">
+                        <span class="mp-logo-text">mercado pago</span>
+                      </div>
+                      <div class="mp-status">
+                        <!-- Spinner -->
+                        <div class="mp-spinner"></div>
+                        <!-- Status Icons -->
+                        <div class="status-icons-wrapper">
+                          <svg class="status-icon icon-success" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                          </svg>
+                          <svg class="status-icon icon-error" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
+                          </svg>
+                        </div>
+                        <span class="mp-label"></span>
+                      </div>
                     </div>
+
+                    <!-- Connection 2-3 -->
+                    <div class="flow-connector conn-2-3">
+                      <div class="connector-line"></div>
+                      <div class="flow-dot dot-forward"></div>
+                    </div>
+
+                    <!-- Block 3: Order -->
+                    <div class="flow-block block-order">
+                      <div class="block-header">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="block-icon">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                        </svg>
+                        <span class="block-title">Orden</span>
+                      </div>
+                      <div class="order-status">
+                        <span class="order-badge badge-pending">Pendiente</span>
+                        <span class="order-badge badge-approved">Confirmada</span>
+                        <span class="order-badge badge-cancelled">Rechazada</span>
+                      </div>
+                    </div>
+
                   </div>
                 </div>
               }
               @case ('analytics') {
-                <div class="card-visual visual-analytics">
-                  <div class="mock-chart-container">
-                    <div class="chart-y-axis">
-                      <span>100k</span>
-                      <span>50k</span>
-                      <span>0</span>
-                    </div>
-                    <div class="mock-chart">
-                      <div class="chart-bar bar-1"><div class="bar-fill"></div></div>
-                      <div class="chart-bar bar-2"><div class="bar-fill"></div></div>
-                      <div class="chart-bar bar-3"><div class="bar-fill"></div></div>
-                      <div class="chart-bar bar-4"><div class="bar-fill"></div></div>
-                      <div class="chart-bar bar-5"><div class="bar-fill"></div></div>
-                      <div class="chart-bar bar-6"><div class="bar-fill"></div></div>
-                    </div>
-                  </div>
-                  <div class="live-indicator">
-                    <span class="dot"></span>
-                    <span class="label">EN VIVO</span>
-                  </div>
-                </div>
-              }
-              @case ('automations') {
-                <div class="card-visual visual-automations">
-                  <div class="automation-flow">
-                    <div class="flow-step step-trigger">
-                      <div class="step-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                          <polyline points="22 4 12 14.01 9 11.01"/>
-                        </svg>
+                <div class="card-visual visual-google">
+                  <!-- Mockup Google Browser -->
+                  <div class="google-browser">
+                    <div class="browser-header">
+                      <div class="dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
                       </div>
-                      <span>Disparador</span>
+                      <div class="address-bar">https://google.com</div>
                     </div>
-                    <div class="flow-connection">
-                      <div class="connection-pulse"></div>
-                    </div>
-                    <div class="flow-step step-action">
-                      <div class="step-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                          <polygon points="12 2 2 7 12 12 22 7 12 2"/>
-                          <polyline points="2 17 12 22 22 17"/>
-                          <polyline points="2 12 12 17 22 12"/>
-                        </svg>
+                    
+                    <div class="browser-body">
+                      <!-- Search Screen -->
+                      <div class="search-screen">
+                        <span class="google-logo">
+                          <span class="g-blue">G</span><span class="g-red">o</span><span class="g-yellow">o</span><span class="g-blue">g</span><span class="g-green">l</span><span class="g-red">e</span>
+                        </span>
+                        <div class="search-input-mock">
+                          <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z" clip-rule="evenodd" />
+                          </svg>
+                          <div class="typing-text-wrapper">
+                            <span class="typing-text">ropa de diseño</span>
+                          </div>
+                        </div>
+                        <div class="search-results">
+                          <div class="result-item">
+                            <div class="result-header">
+                              <span class="result-site">https://tienda.vertex.app</span>
+                              <span class="rank-badge">Nº 1 en Google</span>
+                            </div>
+                            <h4 class="result-title">Tu Tienda Vertex - Moda Online</h4>
+                            <p class="result-snippet">Compra ropa de diseño y calzado con envíos inmediatos y cuotas sin interés...</p>
+                          </div>
+                        </div>
                       </div>
-                      <span>Acción</span>
+                      
+                      <!-- Store Screen (Revealed) -->
+                      <div class="store-screen">
+                        <div class="store-nav">
+                          <span class="store-logo">Vertex Store</span>
+                          <span class="speed-pill">✓ Carga instantánea: 0.2s</span>
+                        </div>
+                        <div class="store-hero">
+                          <div class="store-banner-glow"></div>
+                          <div class="store-grid">
+                            <div class="store-item-mock"></div>
+                            <div class="store-item-mock"></div>
+                            <div class="store-item-mock"></div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              }
-              @case ('developer') {
-                <div class="card-visual visual-developer">
-                  <div class="mock-terminal">
-                    <div class="terminal-header">
-                      <span class="window-dot red"></span>
-                      <span class="window-dot yellow"></span>
-                      <span class="window-dot green"></span>
-                      <span class="terminal-title">bash</span>
-                    </div>
-                    <div class="terminal-body">
-                      <div class="line"><span class="prompt">$</span> npm install @antigravity/sdk</div>
-                      <div class="line success">✓ installed in 1.4s</div>
-                      <div class="line"><span class="prompt">$</span> ag init --key=live_sec</div>
-                      <div class="line blink-cursor">_</div>
-                    </div>
-                  </div>
-                </div>
-              }
             }
-          </div>
-        </article>
-      }
+          }
+        </div>
+      </article>
+    }
     </div>
   </div>
 </section>
