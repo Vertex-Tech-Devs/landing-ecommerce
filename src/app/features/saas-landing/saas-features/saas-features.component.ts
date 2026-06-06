@@ -26,8 +26,8 @@ export class SaasFeaturesComponent {
   features = signal<FeatureItem[]>([
     {
       id: 1,
-      title: 'Navegación tipo App',
-      description: 'El 90% de tus clientes compra desde el teléfono. Ofréceles una navegación ultra-fluida y atractiva que se siente y responde igual que una aplicación móvil nativa.',
+      title: 'Navegación tipo App en Celulares',
+      description: 'Más del 90% de tus clientes compra desde el teléfono. Ofréceles una experiencia ágil con menús intuitivos y un diseño elegante que responde al instante a sus toques.',
       icon: 'ai',
       gridClass: 'col-span-2',
       badge: 'Mobile-First',
@@ -37,8 +37,8 @@ export class SaasFeaturesComponent {
     },
     {
       id: 2,
-      title: 'Autogestión sin Código',
-      description: 'Sube productos, cambia los banners de la portada y actualiza tus precios tú mismo en tiempo real. Toma el control total de tu tienda sin pagarle a nadie más.',
+      title: 'Tu Panel de Control sin Complicaciones',
+      description: 'Modifica precios, sube fotos de tus productos y cambia los anuncios de tu portada con solo unos clics. Toma el control absoluto de tu negocio en tiempo real, sin depender de programadores.',
       icon: 'security',
       gridClass: '',
       badge: 'CMS Integrado',
@@ -48,8 +48,8 @@ export class SaasFeaturesComponent {
     },
     {
       id: 3,
-      title: 'Ventas en Piloto Automático',
-      description: 'Tu negocio abierto 24/7 sin caídas. Recibe cobros de forma segura con Mercado Pago y otras pasarelas integradas, mientras el sistema procesa cada pedido en la nube.',
+      title: 'Ventas en Piloto Automático con Mercado Pago',
+      description: 'Recibe cobros de forma segura las 24 horas. El sistema descuenta el stock en el momento, confirma el pago tras la acreditación y, si tu cliente abandona la transacción, devuelve el producto al catálogo automáticamente.',
       icon: 'integrations',
       gridClass: 'row-span-2',
       badge: 'Nube & Pasarelas',
@@ -59,8 +59,8 @@ export class SaasFeaturesComponent {
     },
     {
       id: 4,
-      title: 'Visible en Google',
-      description: 'Atrae más visitas orgánicas y gratuitas. Tu catálogo se posiciona automáticamente en Google y carga en milisegundos para evitar que tus clientes se vayan por lentitud.',
+      title: 'Visible y veloz en Google',
+      description: 'Tus productos aparecen automáticamente en las búsquedas de Google. Las páginas se preparan en nuestro servidor para cargar de inmediato, evitando que tus clientes se vayan por lentitud.',
       icon: 'analytics',
       gridClass: 'col-span-2',
       badge: 'SEO & Velocidad',

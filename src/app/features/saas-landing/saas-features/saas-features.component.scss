@@ -23,6 +23,13 @@
   overflow-x: hidden;
 }
 
+// Utility classes
+.text-truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 
 .features-section {
   position: relative;
@@ -524,799 +531,1226 @@
 // ANIMACIONES Y COMPONENTES VISUALES INTERNOS
 // ----------------------------------------------------
 
-// 1. VISUAL IA: Neural Network
-.visual-ai {
-  .ai-nodes-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    max-width: 220px;
-    max-height: 220px;
-  }
-
-  .node {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    z-index: 5;
-    background: #fff;
-    box-shadow: 0 0 10px #fff;
-    transition: transform 0.3s ease;
-
-    &-center {
-      top: 50%;
-      left: 50%;
-      width: 20px;
-      height: 20px;
-      transform: translate(-50%, -50%);
-      background: radial-gradient(circle, var(--color-secondary), var(--color-primary));
-      box-shadow: 0 0 20px var(--color-primary-glow);
-
-      .pulse-ring {
-        position: absolute;
-        inset: -15px;
-        border-radius: 50%;
-        border: 2px solid var(--color-primary);
-        animation: pulseRing 3s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
-        pointer-events: none;
-      }
-    }
-
-    &-1 {
-      top: 20%;
-      left: 20%;
-      background: var(--color-secondary);
-      box-shadow: 0 0 12px var(--color-secondary);
-      animation: floatSlow 5s ease-in-out infinite;
-    }
-
-    &-2 {
-      top: 25%;
-      left: 80%;
-      background: var(--color-accent);
-      box-shadow: 0 0 12px var(--color-accent-glow);
-      animation: floatSlow 6s ease-in-out infinite 0.5s;
-    }
-
-    &-3 {
-      top: 75%;
-      left: 75%;
-      background: var(--color-secondary);
-      box-shadow: 0 0 12px var(--color-secondary-glow);
-      animation: floatSlow 5.5s ease-in-out infinite 1s;
-    }
-
-    &-4 {
-      top: 80%;
-      left: 25%;
-      background: var(--color-primary);
-      box-shadow: 0 0 12px var(--color-primary-glow);
-      animation: floatSlow 7s ease-in-out infinite 1.5s;
-    }
-  }
-
-  .node-connections {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-
-    .connection-line {
-      stroke: rgba(255, 255, 255, 0.08);
-      stroke-width: 1.5;
-      stroke-dasharray: 6 4;
-      animation: dashConnection 30s linear infinite;
-      transition: stroke 0.4s ease, stroke-width 0.4s ease;
-    }
-  }
-}
-
-// Reactividad IA en card hover
-.card-ai:hover {
-  .node-connections .connection-line {
-    stroke: rgba(138, 43, 226, 0.45);
-    stroke-width: 2;
-    animation-duration: 15s;
-
-    &.line-1,
-    &.line-3 {
-      stroke: rgba(0, 242, 254, 0.5);
-    }
-  }
-
-  .node-center {
-    transform: translate(-50%, -50%) scale(1.15);
-  }
-}
-
-// 2. VISUAL SEGURIDAD: Radar Scan
-.visual-security {
-  .security-radar {
-    position: relative;
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255, 255, 255, 0.01);
-    overflow: hidden;
-  }
-
-  .radar-scan {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: conic-gradient(from 0deg, var(--color-secondary-glow), transparent 60%);
-    border-radius: 50%;
-    animation: rotateScan 4s linear infinite;
-    transform-origin: center;
-  }
-
-  .radar-circles {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    .radar-circle {
-      position: absolute;
-      border: 1px solid rgba(0, 242, 254, 0.05);
-      border-radius: 50%;
-
-      &.circle-1 {
-        width: 90px;
-        height: 90px;
-      }
-
-      &.circle-2 {
-        width: 60px;
-        height: 60px;
-      }
-
-      &.circle-3 {
-        width: 30px;
-        height: 30px;
-      }
-    }
-  }
-
-  .radar-shield {
-    position: relative;
-    z-index: 5;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: rgba(7, 6, 15, 0.8);
-    border: 1px solid rgba(0, 242, 254, 0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-secondary);
-    box-shadow: 0 0 15px rgba(0, 242, 254, 0.1);
-    transition: all 0.3s ease;
-
-    svg {
-      width: 18px;
-      height: 18px;
-    }
-  }
-}
-
-// Reactividad Seguridad en card hover
-.card-security:hover {
-  .radar-scan {
-    animation-duration: 2s;
-  }
-
-  .radar-shield {
-    color: #fff;
-    border-color: var(--color-secondary);
-    box-shadow: 0 0 25px var(--color-secondary-glow);
-    transform: scale(1.1);
-  }
-
-  .radar-circle {
-    border-color: rgba(0, 242, 254, 0.15);
-  }
-}
-
-// 3. VISUAL INTEGRACIONES: Floating Grid Connectors
-.visual-integrations {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  .integration-grid {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    min-height: 240px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .connector-line {
-    position: absolute;
-    background: rgba(255, 255, 255, 0.04);
-    z-index: 1;
-    transition: background 0.4s ease;
-
-    &.vertical {
-      width: 1px;
-      height: 80%;
-      left: 50%;
-    }
-
-    &.horizontal {
-      height: 1px;
-      width: 80%;
-      top: 50%;
-    }
-  }
-
-  .app-icon {
-    position: absolute;
-    border-radius: 50%;
-    border: 1px solid var(--color-border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 3;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-
-    &.main-app {
-      width: 52px;
-      height: 52px;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: linear-gradient(135deg, var(--color-accent), var(--color-primary));
-      border-color: rgba(255, 255, 255, 0.15);
-      color: #fff;
-      font-size: 0.95rem;
-      font-weight: 800;
-      box-shadow: 0 0 20px rgba(138, 43, 226, 0.4);
-
-      .ripple {
-        position: absolute;
-        inset: -6px;
-        border-radius: 50%;
-        border: 1.5px dashed rgba(255, 0, 127, 0.3);
-        animation: spin 12s linear infinite;
-      }
-    }
-
-    &.app-slack {
-      top: 18%;
-      left: 18%;
-      width: 42px;
-      height: 42px;
-      background: rgba(224, 30, 90, 0.05);
-      border-color: rgba(224, 30, 90, 0.2);
-      animation: floatSlow 6s ease-in-out infinite;
-    }
-
-    &.app-github {
-      bottom: 18%;
-      left: 20%;
-      width: 42px;
-      height: 42px;
-      background: rgba(255, 255, 255, 0.03);
-      border-color: rgba(255, 255, 255, 0.1);
-      color: #f5f4f9;
-      animation: floatSlow 5s ease-in-out infinite 0.75s;
-    }
-
-    &.app-stripe {
-      top: 30%;
-      right: 18%;
-      width: 42px;
-      height: 42px;
-      background: rgba(103, 114, 229, 0.05);
-      border-color: rgba(103, 114, 229, 0.2);
-      color: #6772e5;
-      animation: floatSlow 7s ease-in-out infinite 1.5s;
-    }
-  }
-}
-
-// Reactividad Integraciones en card hover
-.card-integrations:hover {
-  .connector-line {
-    background: rgba(255, 0, 127, 0.15);
-  }
-
-  .app-icon {
-    border-color: rgba(255, 255, 255, 0.2);
-
-    &.main-app {
-      transform: translate(-50%, -50%) scale(1.1);
-      box-shadow: 0 0 30px rgba(255, 0, 127, 0.5);
-    }
-
-    &.app-slack {
-      transform: scale(1.05) translateY(-5px);
-      background: rgba(224, 30, 90, 0.12);
-      border-color: rgba(224, 30, 90, 0.4);
-    }
-
-    &.app-github {
-      transform: scale(1.05) translateY(-3px);
-      background: rgba(255, 255, 255, 0.08);
-      border-color: rgba(255, 255, 255, 0.3);
-    }
-
-    &.app-stripe {
-      transform: scale(1.05) translateY(-4px);
-      background: rgba(103, 114, 229, 0.12);
-      border-color: rgba(103, 114, 229, 0.4);
-    }
-  }
-}
-
-// 4. VISUAL METRICAS: Chart bars
-.visual-analytics {
-  padding: 1.5rem;
+// 1. VISUAL GOOGLE SEARCH (card-analytics)
+.visual-google {
+  background: rgba(10, 8, 20, 0.4);
+  padding: 0;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-start;
-  gap: 1.25rem;
+  justify-content: flex-start;
+  align-items: stretch;
+  height: 100%;
+}
 
-  .mock-chart-container {
-    display: flex;
-    gap: 1rem;
-    width: 100%;
-    align-items: flex-end;
-  }
+.google-browser {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(7, 6, 15, 0.5);
 
-  .chart-y-axis {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100px;
-    font-size: 0.65rem;
-    font-family: var(--font-family);
-    color: var(--color-text-muted);
-    opacity: 0.5;
-    padding-bottom: 4px;
-  }
-
-  .mock-chart {
-    display: flex;
-    align-items: flex-end;
-    gap: 0.65rem;
-    flex-grow: 1;
-    height: 100px;
-    border-left: 1px solid rgba(255, 255, 255, 0.05);
+  .browser-header {
+    height: 32px;
+    background: rgba(255, 255, 255, 0.03);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    padding-left: 0.5rem;
-    padding-bottom: 4px;
-  }
-
-  .chart-bar {
-    flex: 1;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.02);
-    border-radius: 4px;
-    display: flex;
-    align-items: flex-end;
-    overflow: hidden;
-
-    .bar-fill {
-      width: 100%;
-      border-radius: 4px;
-      background: linear-gradient(to top, rgba(0, 242, 254, 0.2), var(--color-secondary));
-      transition: height 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-      box-shadow: 0 0 10px rgba(0, 242, 254, 0.15);
-    }
-
-    &.bar-1 .bar-fill {
-      height: 35%;
-    }
-
-    &.bar-2 .bar-fill {
-      height: 60%;
-    }
-
-    &.bar-3 .bar-fill {
-      height: 45%;
-    }
-
-    &.bar-4 .bar-fill {
-      height: 80%;
-    }
-
-    &.bar-5 .bar-fill {
-      height: 50%;
-    }
-
-    &.bar-6 .bar-fill {
-      height: 70%;
-    }
-  }
-
-  .live-indicator {
     display: flex;
     align-items: center;
+    padding: 0 0.75rem;
     gap: 0.5rem;
-    background: rgba(0, 242, 254, 0.05);
-    border: 1px solid rgba(0, 242, 254, 0.2);
-    padding: 0.25rem 0.6rem;
-    border-radius: 100px;
-    font-size: 0.65rem;
-    font-weight: 700;
-    color: var(--color-secondary);
-    text-shadow: 0 0 5px rgba(0, 242, 254, 0.2);
 
-    .dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background-color: var(--color-secondary);
-      animation: livePulseIndicator 2s infinite;
+    .dots {
+      display: flex;
+      gap: 4px;
+      .dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        &.red { background: #ff5f56; }
+        &.yellow { background: #ffbd2e; }
+        &.green { background: #27c93f; }
+      }
     }
-  }
-}
-
-// Reactividad Métricas en card hover
-.card-analytics:hover {
-  .chart-bar {
-    &.bar-1 .bar-fill {
-      height: 55%;
-    }
-
-    &.bar-2 .bar-fill {
-      height: 80%;
-    }
-
-    &.bar-3 .bar-fill {
-      height: 65%;
-    }
-
-    &.bar-4 .bar-fill {
-      height: 95%;
-    }
-
-    &.bar-5 .bar-fill {
-      height: 75%;
-    }
-
-    &.bar-6 .bar-fill {
-      height: 88%;
+    
+    .address-bar {
+      flex: 1;
+      height: 18px;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 4px;
+      font-size: 0.6rem;
+      color: var(--color-text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 160px;
+      margin: 0 auto;
     }
   }
 
-  .live-indicator {
-    background: rgba(0, 242, 254, 0.1);
-    border-color: var(--color-secondary);
-    color: #fff;
-  }
-}
-
-// 5. VISUAL AUTOMATIZACIÓN: Workflow steps
-.visual-automations {
-  .automation-flow {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.8rem;
-    width: 100%;
-    max-width: 240px;
+  .browser-body {
+    flex: 1;
     position: relative;
+    overflow: hidden;
+    height: calc(100% - 32px);
+  }
+}
+
+.search-screen {
+  position: absolute;
+  inset: 0;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.75rem;
+  background: #090712;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: googleSearchScroll 10s infinite ease-in-out;
+
+  .google-logo {
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    span { display: inline-block; }
+    .g-blue { color: #4285f4; }
+    .g-red { color: #ea4335; }
+    .g-yellow { color: #fbbc05; }
+    .g-green { color: #34a853; }
   }
 
-  .flow-step {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid var(--color-border);
-    padding: 0.6rem 0.8rem;
+  .search-input-mock {
+    width: 90%;
+    max-width: 240px;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--color-text-main);
-    z-index: 2;
-    transition: all 0.3s ease;
+    padding: 0 0.5rem;
+    gap: 0.35rem;
 
-    .step-icon {
-      width: 18px;
-      height: 18px;
-      color: var(--color-yellow);
+    .search-icon {
+      width: 10px;
+      height: 10px;
+      color: var(--color-text-muted);
+    }
+
+    .typing-text-wrapper {
+      font-size: 0.65rem;
+      color: #fff;
+      display: flex;
+      align-items: center;
+    }
+
+    .typing-text {
+      display: inline-block;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 1.5px solid var(--color-secondary);
+      width: 0;
+      animation: googleTyping 10s infinite steps(15) ease-in-out;
+    }
+  }
+
+  .search-results {
+    width: 100%;
+    opacity: 0;
+    transform: translateY(5px);
+    animation: googleResultsReveal 10s infinite ease-in-out;
+
+    .result-item {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      padding: 0.5rem;
+      text-align: left;
+      transition: box-shadow 0.3s ease;
+      animation: googleResultGlow 10s infinite ease-in-out;
+
+      .result-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.15rem;
+      }
+      .result-site {
+        font-size: 0.55rem;
+        color: var(--color-secondary);
+      }
+      .rank-badge {
+        font-size: 0.5rem;
+        background: linear-gradient(135deg, var(--color-yellow), #ffa500);
+        color: #000;
+        font-weight: 700;
+        padding: 0.05rem 0.25rem;
+        border-radius: 4px;
+      }
+      .result-title {
+        font-size: 0.7rem;
+        margin: 0 0 0.15rem;
+        color: #fff;
+        font-weight: 600;
+      }
+      .result-snippet {
+        font-size: 0.55rem;
+        color: var(--color-text-muted);
+        margin: 0;
+        line-height: 1.3;
+      }
+    }
+  }
+}
+
+.store-screen {
+  position: absolute;
+  inset: 0;
+  background: #07060f;
+  transform: translateY(100%);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: googleStoreReveal 10s infinite ease-in-out;
+
+  .store-nav {
+    height: 28px;
+    background: rgba(255, 255, 255, 0.02);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0.75rem;
+
+    .store-logo {
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .speed-pill {
+      font-size: 0.55rem;
+      color: var(--color-green);
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      padding: 0.1rem 0.4rem;
+      border-radius: 100px;
+      font-weight: 600;
+      animation: speedPillPulse 2s infinite ease-in-out;
+    }
+  }
+
+  .store-hero {
+    flex: 1;
+    position: relative;
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+
+    .store-banner-glow {
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      width: 80px;
+      height: 40px;
+      background: radial-gradient(circle, var(--color-secondary-glow) 0%, transparent 70%);
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    .store-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.4rem;
+      margin-top: 0.25rem;
+    }
+
+    .store-item-mock {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 6px;
+      aspect-ratio: 1;
+      animation: storeItemsPop 10s infinite cubic-bezier(0.16, 1, 0.3, 1);
+
+      &:nth-child(2) { animation-delay: 0.1s; }
+      &:nth-child(3) { animation-delay: 0.2s; }
+    }
+  }
+}
+
+// 2. VISUAL CMS PANEL (card-security)
+.visual-cms {
+  padding: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.cms-container {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 0.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.cms-panel {
+  background: rgba(10, 8, 20, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+
+  .panel-header {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 0.25rem;
+    
+    .panel-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--color-secondary);
+    }
+    
+    .panel-title {
+      font-size: 0.55rem;
+      font-weight: 700;
+      color: var(--color-text-muted);
+    }
+
+    .store-url {
+      font-size: 0.55rem;
+      color: var(--color-secondary);
+      font-weight: 600;
+    }
+  }
+}
+
+.admin-panel {
+  .admin-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    
+    label {
+      font-size: 0.5rem;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    
+    .mock-input {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 4px;
+      padding: 0.15rem 0.3rem;
+      font-size: 0.55rem;
+      color: #fff;
+      height: 14px;
+      display: flex;
+      align-items: center;
+    }
+
+    .price-input-container {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      .currency {
+        font-size: 0.55rem;
+        color: var(--color-secondary);
+        font-weight: 700;
+      }
+      .price-value {
+        flex: 1;
+        &::after {
+          content: '4.200';
+          animation: cmsPriceValueText 7s infinite ease-in-out;
+        }
+      }
+    }
+
+    &.upload-area {
+      margin-top: 0.15rem;
+    }
+  }
+
+  .drop-zone {
+    border: 1.5px dashed rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    height: 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    animation: cmsDropZoneActive 7s infinite ease-in-out;
+
+    .upload-icon {
+      width: 10px;
+      height: 10px;
+      color: var(--color-text-muted);
+      margin-bottom: 1px;
+    }
+    .drop-text {
+      font-size: 0.45rem;
+      color: var(--color-text-muted);
+    }
+    .upload-progress-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: rgba(255, 255, 255, 0.05);
+      .progress-fill {
+        height: 100%;
+        width: 0;
+        background: var(--color-green);
+        animation: cmsProgressFill 7s infinite ease-in-out;
+      }
+    }
+  }
+}
+
+.store-preview {
+  .shop-grid {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .product-preview-card {
+    width: 100%;
+    max-width: 80px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    padding: 0.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    animation: cmsCardSync 7s infinite ease-in-out;
+
+    .product-img-container {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1.1;
+      border-radius: 4px;
+      overflow: hidden;
+      background: rgba(0, 0, 0, 0.2);
+
+      .product-img {
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+        transition: opacity 0.4s ease;
+
+        &.img-placeholder {
+          background-image: radial-gradient(circle, rgba(255,255,255,0.05) 10%, transparent 10.1%);
+          background-size: 8px 8px;
+          opacity: 1;
+          animation: cmsPlaceholderOpacity 7s infinite ease-in-out;
+        }
+
+        &.img-uploaded {
+          background-image: linear-gradient(135deg, var(--color-secondary-glow), var(--color-primary-glow));
+          opacity: 0;
+          animation: cmsUploadedOpacity 7s infinite ease-in-out;
+          
+          &::after {
+            content: '👕';
+            font-size: 1.1rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+        }
+      }
+    }
+
+    .product-info-mock {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      text-align: left;
+      
+      .product-title-mock {
+        font-size: 0.48rem;
+        color: #fff;
+        font-weight: 500;
+      }
+      .product-price-mock {
+        font-size: 0.5rem;
+        font-weight: 700;
+        color: var(--color-secondary);
+        &::after {
+          content: '$4.200';
+          animation: cmsPriceMockText 7s infinite ease-in-out;
+        }
+      }
+    }
+  }
+}
+
+.floating-upload-item {
+  position: absolute;
+  z-index: 10;
+  background: rgba(10, 8, 20, 0.85);
+  border: 1px solid var(--color-secondary);
+  border-radius: 6px;
+  padding: 0.2rem 0.4rem;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  font-size: 0.45rem;
+  color: #fff;
+  pointer-events: none;
+  animation: cmsFloatingUpload 7s infinite ease-in-out;
+
+  .mini-card-icon {
+    width: 8px;
+    height: 8px;
+    color: var(--color-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    svg { width: 100%; height: 100%; }
+  }
+}
+
+// 3. RESPONSIVE MOBILE DEVICE (card-ai)
+.visual-mobile {
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.phone-mockup {
+  width: 120px;
+  height: 200px;
+  background: rgba(10, 8, 20, 0.6);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(12px);
+
+  .phone-notch {
+    width: 50px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+  }
+
+  .phone-header {
+    height: 24px;
+    padding: 0.25rem 0.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    z-index: 5;
+    background: rgba(7, 6, 15, 0.2);
+
+    .phone-logo {
+      font-size: 0.48rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: 0.05em;
+    }
+
+    .cart-icon-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+      .cart-svg-icon {
+        width: 10px;
+        height: 10px;
+        color: #fff;
+      }
+      .cart-badge-count {
+        position: absolute;
+        top: -4px;
+        right: -4px;
+        background: var(--color-accent);
+        color: #fff;
+        font-size: 0.4rem;
+        font-weight: 700;
+        width: 7.5px;
+        height: 7.5px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: phoneCartBadge 8s infinite ease-in-out;
+      }
+    }
+  }
+
+  .phone-content-window {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .phone-carousel {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  .carousel-track {
+    display: flex;
+    width: 300%;
+    height: 100%;
+    animation: phoneTrackScroll 8s infinite cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .carousel-item {
+    width: 33.333%;
+    height: 100%;
+    padding: 0.4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.25rem;
+    box-sizing: border-box;
+
+    .item-img {
+      width: 100%;
+      height: 55px;
+      border-radius: 8px;
+      background-size: cover;
+      background-position: center;
+      background-color: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+
+      &.img-shoe-1 {
+        background-image: linear-gradient(135deg, var(--color-primary-glow), transparent);
+        position: relative;
+        &::after { content: '👟'; font-size: 1.25rem; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+      }
+      &.img-shoe-2 {
+        background-image: linear-gradient(135deg, var(--color-secondary-glow), transparent);
+        position: relative;
+        &::after { content: '🥾'; font-size: 1.25rem; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+      }
+      &.img-shoe-3 {
+        background-image: linear-gradient(135deg, var(--color-accent-glow), transparent);
+        position: relative;
+        &::after { content: '👠'; font-size: 1.25rem; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+      }
+    }
+
+    .item-info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1px;
+      text-align: left;
+
+      .item-brand {
+        font-size: 0.45rem;
+        color: var(--color-text-muted);
+      }
+      .item-name {
+        font-size: 0.5rem;
+        font-weight: 700;
+        color: #fff;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
+      }
+      .item-price {
+        font-size: 0.5rem;
+        color: var(--color-secondary);
+        font-weight: 600;
+      }
+      
+      .add-to-cart-btn {
+        width: 100%;
+        background: linear-gradient(135deg, var(--color-primary), #6a1b9a);
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        font-size: 0.45rem;
+        font-weight: 700;
+        padding: 0.15rem 0;
+        cursor: pointer;
+        margin-top: 0.15rem;
+        font-family: var(--font-family);
+        transition: transform 0.1s ease;
+      }
+    }
+    
+    &:nth-child(2) {
+      .add-to-cart-btn {
+        animation: phoneBtnClick 8s infinite ease-in-out;
+      }
+    }
+  }
+}
+
+.simulated-cursor {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.4);
+  border: 1.5px solid #fff;
+  border-radius: 50%;
+  z-index: 20;
+  pointer-events: none;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  animation: phoneCursorAnimation 8s infinite ease-in-out;
+  transform-origin: center;
+}
+
+// 4. MERCADO PAGO FLOW PIPELINE (card-integrations)
+.visual-mp-flow {
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.mp-flow-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.25rem;
+  max-width: 280px;
+}
+
+.flow-block {
+  flex: 1;
+  background: rgba(10, 8, 20, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  align-items: center;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  min-height: 80px;
+  justify-content: space-between;
+
+  .block-header {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    width: 100%;
+    justify-content: center;
+    padding-bottom: 0.2rem;
+
+    .block-icon {
+      width: 10px;
+      height: 10px;
+      color: var(--color-text-muted);
+    }
+    .block-title {
+      font-size: 0.52rem;
+      font-weight: 700;
+      color: var(--color-text-muted);
+    }
+  }
+}
+
+.block-product {
+  .stock-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1px;
+    
+    .stock-label {
+      font-size: 0.45rem;
+      color: var(--color-text-muted);
+    }
+    .stock-counter-wrapper {
+      position: relative;
+      height: 12px;
+      width: 50px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
-
-    &.step-trigger {
-      border-color: rgba(255, 184, 0, 0.2);
-    }
-
-    &.step-action {
-      border-color: rgba(255, 0, 127, 0.2);
-
-      .step-icon {
-        color: var(--color-accent);
-      }
-    }
-  }
-
-  .flow-connection {
-    position: relative;
-    flex-grow: 1;
-    height: 2px;
-    background: rgba(255, 255, 255, 0.05);
-    max-width: 60px;
-    z-index: 1;
-
-    .connection-pulse {
+    .stock-count {
       position: absolute;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--color-yellow);
-      box-shadow: 0 0 10px var(--color-yellow);
-      top: -2px;
-      left: 0;
-      animation: pulseTravel 2s infinite linear;
-    }
-  }
-}
-
-// Reactividad Automatizaciones en card hover
-.card-automations:hover {
-  .flow-step {
-    background: rgba(255, 255, 255, 0.05);
-    transform: translateY(-2px);
-
-    &.step-trigger {
-      border-color: var(--color-yellow);
-      box-shadow: 0 0 15px rgba(255, 184, 0, 0.15);
-    }
-
-    &.step-action {
-      border-color: var(--color-accent);
-      box-shadow: 0 0 15px rgba(255, 0, 127, 0.15);
-    }
-  }
-
-  .flow-connection {
-    background: rgba(255, 184, 0, 0.2);
-  }
-}
-
-// 6. VISUAL DESARROLLADOR: Mock Terminal
-.visual-developer {
-  padding: 1.25rem;
-
-  .mock-terminal {
-    background: #090710;
-    border: 1px solid var(--color-border);
-    border-radius: 12px;
-    width: 100%;
-    max-width: 250px;
-    overflow: hidden;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 0.725rem;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-    transition: all 0.3s ease;
-  }
-
-  .terminal-header {
-    height: 28px;
-    background: rgba(255, 255, 255, 0.02);
-    border-bottom: 1px solid var(--color-border);
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 0 0.75rem;
-    position: relative;
-
-    .window-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-
-      &.red {
-        background-color: #ff5f56;
-      }
-
-      &.yellow {
-        background-color: #ffbd2e;
-      }
-
-      &.green {
-        background-color: #27c93f;
-      }
-    }
-
-    .terminal-title {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 0.65rem;
-      color: var(--color-text-muted);
-      opacity: 0.7;
-    }
-  }
-
-  .terminal-body {
-    padding: 0.8rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-    color: var(--color-text-main);
-    text-align: left;
-
-    .line {
-      display: flex;
-      align-items: center;
-      gap: 0.35rem;
+      font-size: 0.55rem;
+      font-weight: 700;
       white-space: nowrap;
 
-      .prompt {
+      &.count-1 {
         color: var(--color-secondary);
-        font-weight: 700;
+        animation: count1Toggle 14s infinite ease-in-out;
       }
+      &.count-0 {
+        color: var(--color-accent);
+        animation: count0Toggle 14s infinite ease-in-out;
+      }
+    }
+  }
+}
 
-      &.success {
+.block-mp {
+  border-color: rgba(0, 168, 252, 0.15);
+  animation: mpBlockGlow 14s infinite ease-in-out;
+
+  .mp-logo-text {
+    font-size: 0.52rem;
+    font-weight: 800;
+    font-style: italic;
+    color: #00a8fc;
+  }
+
+  .mp-status {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    position: relative;
+    
+    .mp-spinner {
+      width: 10px;
+      height: 10px;
+      border: 1.5px solid rgba(0, 168, 252, 0.2);
+      border-top-color: #00a8fc;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite, mpSpinnerToggle 14s infinite ease-in-out;
+    }
+
+    .status-icons-wrapper {
+      position: relative;
+      width: 12px;
+      height: 12px;
+      margin: 1px 0;
+    }
+
+    .status-icon {
+      position: absolute;
+      inset: 0;
+      width: 12px;
+      height: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &.icon-success {
         color: var(--color-green);
+        animation: mpSuccessToggle 14s infinite ease-in-out;
+      }
+      &.icon-error {
+        color: var(--color-accent);
+        animation: mpErrorToggle 14s infinite ease-in-out;
       }
     }
 
-    .blink-cursor {
-      color: var(--color-secondary);
-      font-weight: 700;
-      animation: cursorBlink 1s step-end infinite;
+    .mp-label {
+      font-size: 0.45rem;
+      color: var(--color-text-muted);
+      &::after {
+        content: 'Esperando...';
+        animation: mpLabelContent 14s infinite ease-in-out;
+      }
     }
   }
 }
 
-// Reactividad Terminal en card hover
-.card-developer:hover {
-  .mock-terminal {
-    border-color: rgba(16, 185, 129, 0.3);
-    box-shadow: 0 20px 40px rgba(16, 185, 129, 0.1);
-    transform: scale(1.03);
+.block-order {
+  .order-status {
+    position: relative;
+    height: 14px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
+  .order-badge {
+    position: absolute;
+    font-size: 0.48rem;
+    font-weight: 700;
+    padding: 0.05rem 0.25rem;
+    border-radius: 4px;
+    white-space: nowrap;
 
-  .terminal-body {
-    .line .prompt {
-      color: var(--color-green);
+    &.badge-pending {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--color-text-muted);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      animation: mpPendingBadgeToggle 14s infinite ease-in-out;
     }
-
-    .blink-cursor {
+    &.badge-approved {
+      background: rgba(16, 185, 129, 0.1);
       color: var(--color-green);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      animation: mpApprovedBadgeToggle 14s infinite ease-in-out;
+    }
+    &.badge-cancelled {
+      background: rgba(255, 0, 127, 0.1);
+      color: var(--color-accent);
+      border: 1px solid rgba(255, 0, 127, 0.2);
+      animation: mpCancelledBadgeToggle 14s infinite ease-in-out;
     }
   }
 }
 
+.flow-connector {
+  flex: 0.6;
+  position: relative;
+  height: 2px;
+  min-width: 25px;
+
+  .connector-line {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.05);
+    height: 100%;
+  }
+
+  .flow-dot {
+    position: absolute;
+    top: -2px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-secondary);
+    box-shadow: 0 0 8px var(--color-secondary);
+    opacity: 0;
+
+    &.dot-forward {
+      left: 0;
+    }
+    &.dot-backward {
+      right: 0;
+      background: var(--color-accent);
+      box-shadow: 0 0 8px var(--color-accent);
+    }
+  }
+  
+  &.conn-1-2 {
+    .dot-forward {
+      animation: mpDot12Forward 14s infinite linear;
+    }
+    .dot-backward {
+      animation: mpDot12Backward 14s infinite linear;
+    }
+  }
+  &.conn-2-3 {
+    .dot-forward {
+      animation: mpDot23Forward 14s infinite linear;
+    }
+  }
+}
+
+// 5. HOVER EFFECTS SPECIFIC TO EACH CARD
+.card-analytics:hover {
+  .google-browser {
+    border-color: rgba(0, 242, 254, 0.25);
+    box-shadow: 0 15px 35px var(--color-secondary-glow);
+    transform: scale(1.02);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+}
+
+.card-security:hover {
+  .cms-panel {
+    border-color: rgba(16, 185, 129, 0.25);
+    box-shadow: 0 15px 35px var(--color-green-glow);
+    transform: translateY(-2px);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+}
+
+.card-ai:hover {
+  .phone-mockup {
+    border-color: rgba(138, 43, 226, 0.3);
+    box-shadow: 0 15px 35px var(--color-primary-glow);
+    transform: rotate(1deg) scale(1.03);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+}
+
+.card-integrations:hover {
+  .flow-block {
+    border-color: rgba(255, 0, 127, 0.2);
+    box-shadow: 0 10px 25px rgba(255, 0, 127, 0.05);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+}
 
 // ----------------------------------------------------
-// KEYFRAMES ANIMACIONES PREMIUM
+// KEYFRAMES ANIMACIONES PREMIUM GENERALES
 // ----------------------------------------------------
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
 
-  50% {
-    background-position: 100% 50%;
-  }
+// Google Search Keyframes
+@keyframes googleTyping {
+  0%, 5% { width: 0; }
+  25%, 45% { width: 95px; border-right-color: var(--color-secondary); }
+  46%, 100% { width: 95px; border-right-color: transparent; }
+}
 
-  100% {
-    background-position: 0% 50%;
-  }
+@keyframes googleResultsReveal {
+  0%, 30% { opacity: 0; transform: translateY(5px); }
+  35%, 48% { opacity: 1; transform: translateY(0); }
+  52%, 100% { opacity: 0; }
+}
+
+@keyframes googleResultGlow {
+  0%, 34% { box-shadow: none; border-color: rgba(255, 255, 255, 0.05); }
+  38%, 46% { box-shadow: 0 0 15px var(--color-secondary-glow); border-color: var(--color-secondary); }
+  48%, 100% { box-shadow: none; border-color: rgba(255, 255, 255, 0.05); }
+}
+
+@keyframes googleSearchScroll {
+  0%, 48% { transform: translateY(0); }
+  53%, 90% { transform: translateY(-100%); }
+  95%, 100% { transform: translateY(0); }
+}
+
+@keyframes googleStoreReveal {
+  0%, 48% { transform: translateY(100%); }
+  53%, 90% { transform: translateY(0); }
+  95%, 100% { transform: translateY(100%); }
+}
+
+@keyframes speedPillPulse {
+  0%, 100% { transform: scale(1); opacity: 0.9; box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+  50% { transform: scale(1.05); opacity: 1; box-shadow: 0 0 10px rgba(16, 185, 129, 0.2); }
+}
+
+@keyframes storeItemsPop {
+  0%, 50% { transform: scale(0.9); opacity: 0; }
+  55%, 90% { transform: scale(1); opacity: 1; }
+  95%, 100% { transform: scale(0.9); opacity: 0; }
+}
+
+// CMS Admin Keyframes
+@keyframes cmsFloatingUpload {
+  0% { transform: translate(-100px, 80px); opacity: 0; }
+  10% { transform: translate(-80px, 60px); opacity: 1; }
+  25%, 100% { transform: translate(15px, 60px); opacity: 0; }
+}
+
+@keyframes cmsDropZoneActive {
+  0%, 20% { border-color: rgba(255, 255, 255, 0.1); box-shadow: none; }
+  25%, 38% { border-color: var(--color-green); box-shadow: inset 0 0 8px rgba(16, 185, 129, 0.2); }
+  42%, 100% { border-color: rgba(255, 255, 255, 0.1); box-shadow: none; }
+}
+
+@keyframes cmsProgressFill {
+  0%, 25% { width: 0; opacity: 1; }
+  35% { width: 100%; opacity: 1; }
+  39%, 100% { width: 100%; opacity: 0; }
+}
+
+@keyframes cmsPriceValueText {
+  0%, 39% { content: '4.200'; }
+  40%, 100% { content: '5.200'; }
+}
+
+@keyframes cmsPriceMockText {
+  0%, 39% { content: '$4.200'; }
+  40%, 100% { content: '$5.200'; }
+}
+
+@keyframes cmsPlaceholderOpacity {
+  0%, 38% { opacity: 1; }
+  42%, 90% { opacity: 0; }
+  95%, 100% { opacity: 1; }
+}
+
+@keyframes cmsUploadedOpacity {
+  0%, 38% { opacity: 0; }
+  42%, 90% { opacity: 1; }
+  95%, 100% { opacity: 0; }
+}
+
+@keyframes cmsCardSync {
+  0%, 38% { transform: scale(1); border-color: rgba(255, 255, 255, 0.05); }
+  42%, 48% { transform: scale(1.05); border-color: var(--color-green); box-shadow: 0 0 10px rgba(16, 185, 129, 0.2); }
+  52%, 90% { transform: scale(1); border-color: rgba(255, 255, 255, 0.05); box-shadow: none; }
+  95%, 100% { transform: scale(1); }
+}
+
+// Mobile Device Keyframes
+@keyframes phoneCursorAnimation {
+  0% { transform: translate(130px, 150px) scale(1); opacity: 0; }
+  10% { transform: translate(90px, 120px) scale(1); opacity: 1; }
+  15% { transform: translate(90px, 120px) scale(0.9); }
+  22% { transform: translate(25px, 120px) scale(0.9); }
+  25% { transform: translate(25px, 120px) scale(1); }
+  35% { transform: translate(85px, 158px) scale(1); opacity: 1; }
+  38%, 41% { transform: translate(85px, 158px) scale(0.85); }
+  44% { transform: translate(85px, 158px) scale(1); }
+  55% { transform: translate(130px, 180px) scale(1); opacity: 0; }
+  100% { opacity: 0; }
+}
+
+@keyframes phoneTrackScroll {
+  0%, 18% { transform: translateX(0); }
+  23%, 95% { transform: translateX(-33.333%); }
+  98%, 100% { transform: translateX(0); }
+}
+
+@keyframes phoneBtnClick {
+  0%, 38% { transform: scale(1); background: linear-gradient(135deg, var(--color-primary), #6a1b9a); }
+  39%, 42% { transform: scale(0.92); background: var(--color-accent); }
+  43%, 100% { transform: scale(1); }
+}
+
+@keyframes phoneCartBadge {
+  0%, 40% { transform: scale(0); opacity: 0; }
+  41% { transform: scale(0); opacity: 1; }
+  45% { transform: scale(1.4); }
+  48%, 95% { transform: scale(1); opacity: 1; }
+  98%, 100% { transform: scale(0); opacity: 0; }
+}
+
+// Mercado Pago Flow Keyframes
+@keyframes count1Toggle {
+  0%, 31.9% { opacity: 1; }
+  32%, 49.9% { opacity: 0; }
+  50%, 57.1% { opacity: 0; }
+  57.2%, 64.2% { opacity: 1; }
+  64.3%, 82.1% { opacity: 0; }
+  82.2%, 100% { opacity: 1; }
+}
+
+@keyframes count0Toggle {
+  0%, 31.9% { opacity: 0; }
+  32%, 57.1% { opacity: 1; }
+  57.2%, 64.2% { opacity: 0; }
+  64.3%, 82.1% { opacity: 1; }
+  82.2%, 100% { opacity: 0; }
+}
+
+@keyframes mpDot12Forward {
+  0%, 7.1% { left: 0%; opacity: 0; }
+  8.5% { opacity: 1; }
+  12.8% { opacity: 1; }
+  14.2%, 57.1% { left: 100%; opacity: 0; }
+  57.2%, 64.2% { left: 0%; opacity: 0; }
+  65.6% { opacity: 1; }
+  69.9% { opacity: 1; }
+  71.4%, 100% { left: 100%; opacity: 0; }
+}
+
+@keyframes mpDot12Backward {
+  0%, 78.5% { right: 0%; opacity: 0; }
+  79.9% { opacity: 1; }
+  84.2% { opacity: 1; }
+  85.7%, 100% { right: 100%; opacity: 0; }
+}
+
+@keyframes mpDot23Forward {
+  0%, 25% { left: 0%; opacity: 0; }
+  26.4% { opacity: 1; }
+  30.6% { opacity: 1; }
+  32.1%, 100% { left: 100%; opacity: 0; }
+}
+
+@keyframes mpSpinnerToggle {
+  0%, 14.1% { opacity: 0; }
+  14.2%, 24.9% { opacity: 1; }
+  25%, 64.1% { opacity: 0; }
+  71.4%, 78.4% { opacity: 1; }
+  78.5%, 100% { opacity: 0; }
+}
+
+@keyframes mpSuccessToggle {
+  0%, 24.9% { opacity: 0; transform: scale(0.5); }
+  25%, 49.9% { opacity: 1; transform: scale(1); }
+  50%, 100% { opacity: 0; transform: scale(0.5); }
+}
+
+@keyframes mpErrorToggle {
+  0%, 78.4% { opacity: 0; transform: scale(0.5); }
+  78.5%, 92.8% { opacity: 1; transform: scale(1); }
+  92.9%, 100% { opacity: 0; transform: scale(0.5); }
+}
+
+@keyframes mpLabelContent {
+  0%, 14.1% { content: 'Esperando...'; }
+  14.2%, 24.9% { content: 'Procesando...'; }
+  25%, 49.9% { content: 'Aprobado'; }
+  50%, 71.3% { content: 'Esperando...'; }
+  71.4%, 78.4% { content: 'Procesando...'; }
+  78.5%, 92.8% { content: 'Rechazado'; }
+  92.9%, 100% { content: 'Esperando...'; }
+}
+
+@keyframes mpBlockGlow {
+  25%, 49.9% { box-shadow: 0 0 15px rgba(16, 185, 129, 0.25); border-color: rgba(16, 185, 129, 0.4); }
+  78.5%, 92.8% { box-shadow: 0 0 15px rgba(255, 0, 127, 0.25); border-color: rgba(255, 0, 127, 0.4); }
+  0%, 24.9%, 50%, 78.4%, 92.9%, 100% { box-shadow: none; border-color: rgba(0, 168, 252, 0.15); }
+}
+
+@keyframes mpPendingBadgeToggle {
+  0%, 32% { opacity: 1; }
+  32.1%, 49.9% { opacity: 0; }
+  50%, 82.1% { opacity: 1; }
+  82.2%, 92.8% { opacity: 0; }
+  92.9%, 100% { opacity: 1; }
+}
+
+@keyframes mpApprovedBadgeToggle {
+  0%, 32% { opacity: 0; transform: scale(0.8); }
+  32.1%, 49.9% { opacity: 1; transform: scale(1); }
+  50%, 100% { opacity: 0; transform: scale(0.8); }
+}
+
+@keyframes mpCancelledBadgeToggle {
+  0%, 82.1% { opacity: 0; transform: scale(0.8); }
+  82.2%, 92.8% { opacity: 1; transform: scale(1); }
+  92.9%, 100% { opacity: 0; transform: scale(0.8); }
 }
 
 @keyframes spin {
-  from {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-
-  to {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
-}
-
-@keyframes rotateScan {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes pulseRing {
-  0% {
-    transform: scale(0.5);
-    opacity: 0;
-  }
-
-  50% {
-    opacity: 0.35;
-  }
-
-  100% {
-    transform: scale(1.5);
-    opacity: 0;
-  }
-}
-
-@keyframes floatSlow {
-
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-
-  50% {
-    transform: translateY(-6px);
-  }
-}
-
-@keyframes dashConnection {
-  to {
-    stroke-dashoffset: -100;
-  }
-}
-
-@keyframes livePulseIndicator {
-  0% {
-    box-shadow: 0 0 0 0 rgba(0, 242, 254, 0.6);
-  }
-
-  70% {
-    box-shadow: 0 0 0 8px rgba(0, 242, 254, 0);
-  }
-
-  100% {
-    box-shadow: 0 0 0 0 rgba(0, 242, 254, 0);
-  }
-}
-
-@keyframes pulseTravel {
-  0% {
-    left: 0%;
-    opacity: 0;
-  }
-
-  10% {
-    opacity: 1;
-  }
-
-  90% {
-    opacity: 1;
-  }
-
-  100% {
-    left: 100%;
-    opacity: 0;
-  }
-}
-
-@keyframes cursorBlink {
-
-  from,
-  to {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0;
-  }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 
@@ -1382,5 +1816,166 @@
     .card-visual {
       min-height: 150px;
     }
+  }
+}
+
+// Extra responsive mobile adjustments for mockups and pipelines
+@media (max-width: 480px) {
+  // Bento card spacing & layout
+  .bento-card {
+    .card-inner {
+      padding: 1.75rem 1.25rem;
+      gap: 1.25rem;
+    }
+    .card-title {
+      font-size: 1.3rem;
+    }
+    .card-description {
+      font-size: 0.875rem;
+    }
+  }
+
+  // Google Browser Mockup Mobile Adjustments
+  .google-browser {
+    .browser-header {
+      height: 26px;
+      .address-bar {
+        font-size: 0.55rem;
+        height: 15px;
+      }
+    }
+    .browser-body {
+      height: calc(100% - 26px);
+    }
+  }
+  .search-screen {
+    padding: 0.6rem;
+    gap: 0.5rem;
+    .google-logo {
+      font-size: 1rem;
+    }
+    .search-input-mock {
+      height: 20px;
+      .typing-text-wrapper {
+        font-size: 0.6rem;
+      }
+    }
+    .search-results .result-item {
+      padding: 0.4rem;
+      .result-title {
+        font-size: 0.65rem;
+      }
+      .result-snippet {
+        font-size: 0.5rem;
+      }
+    }
+  }
+  .store-screen {
+    .store-nav {
+      height: 24px;
+      .store-logo {
+        font-size: 0.6rem;
+      }
+      .speed-pill {
+        font-size: 0.5rem;
+        padding: 0.05rem 0.3rem;
+      }
+    }
+  }
+
+  // Phone Mockup Mobile Adjustments
+  .phone-mockup {
+    width: 110px;
+    height: 180px;
+    border-radius: 16px;
+    
+    .phone-header {
+      height: 20px;
+      .phone-logo {
+        font-size: 0.45rem;
+      }
+    }
+  }
+  .carousel-item {
+    padding: 0.3rem;
+    .item-img {
+      height: 48px;
+    }
+  }
+
+  // CMS Mockup Mobile Adjustments
+  .cms-container {
+    gap: 0.3rem;
+  }
+  .cms-panel {
+    padding: 0.35rem;
+    gap: 0.25rem;
+    
+    .panel-header {
+      padding-bottom: 0.15rem;
+      .panel-title, .store-url {
+        font-size: 0.48rem;
+      }
+    }
+  }
+  .admin-panel .form-group {
+    gap: 0.1rem;
+    label {
+      font-size: 0.45rem;
+    }
+    .mock-input {
+      font-size: 0.48rem;
+      height: 12px;
+      padding: 0.1rem 0.2rem;
+    }
+  }
+  .admin-panel .drop-zone {
+    height: 38px;
+    .upload-icon {
+      width: 8px;
+      height: 8px;
+    }
+    .drop-text {
+      font-size: 0.4rem;
+    }
+  }
+  .store-preview .product-preview-card {
+    max-width: 65px;
+    padding: 0.2rem;
+    gap: 0.2rem;
+    
+    .product-info-mock {
+      .product-title-mock {
+        font-size: 0.42rem;
+      }
+      .product-price-mock {
+        font-size: 0.45rem;
+      }
+    }
+  }
+
+  // Mercado Pago Flow Mobile Adjustments
+  .mp-flow-container {
+    gap: 0.1rem;
+  }
+  .flow-block {
+    padding: 0.25rem 0.15rem;
+    min-height: 70px;
+    
+    .block-header {
+      padding-bottom: 0.1rem;
+      .block-title {
+        font-size: 0.45rem;
+      }
+    }
+    .stock-display .stock-label,
+    .stock-display .stock-count,
+    .mp-status .mp-label,
+    .order-status .order-badge {
+      font-size: 0.4rem;
+    }
+  }
+  .flow-connector {
+    min-width: 10px;
   }
 }
