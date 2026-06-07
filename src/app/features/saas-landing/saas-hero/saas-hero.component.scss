@@ -496,6 +496,10 @@
       &.nav-item-pedidos {
         animation: activePedidosItem 12s infinite ease-in-out;
       }
+
+      &.nav-item-gestionhome {
+        animation: activeGestionhomeItem 12s infinite ease-in-out;
+      }
     }
   }
 }
@@ -515,14 +519,13 @@
 
 .mockup-view {
   position: absolute;
-  top: 0.6rem;
-  left: 0.75rem;
-  right: 0.75rem;
-  bottom: 0.6rem;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease-in-out;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  transition: all 0.5s ease-in-out;
   overflow: hidden;
   scrollbar-width: none;
   &::-webkit-scrollbar {
@@ -535,6 +538,204 @@
 
   &.view-pedidos {
     animation: showPedidosView 12s infinite ease-in-out;
+  }
+
+  &.view-gestion {
+    animation: showGestionView 12s infinite ease-in-out;
+  }
+}
+
+// Estilos para la vista de Gestión
+.view-gestion {
+  .gestion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.65rem;
+    width: 100%;
+    padding: 0 0.2rem;
+  }
+
+  .gestion-title {
+    font-size: 0.725rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+
+    .gestion-icon {
+      font-size: 0.8rem;
+    }
+  }
+
+  .btn-add {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    padding: 0.25rem 0.65rem;
+    font-size: 0.62rem;
+    font-weight: 700;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: var(--font-family);
+    letter-spacing: 0.03em;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.15);
+      color: #fff;
+    }
+
+    .plus-icon {
+      margin-right: 1px;
+      font-weight: 800;
+    }
+  }
+
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.6rem;
+    width: 100%;
+  }
+
+  .category-card {
+    position: relative;
+    background: rgba(18, 19, 38, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 14px;
+    padding: 0.65rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    backdrop-filter: blur(8px);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+
+    &:last-child {
+      .btn-change {
+        border-color: rgba(0, 242, 254, 0.45);
+        box-shadow: 0 0 10px rgba(0, 242, 254, 0.15);
+      }
+    }
+  }
+
+  .btn-delete {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #ef4444;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(239, 68, 68, 0.3);
+    z-index: 10;
+    line-height: 1;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+
+    &:hover {
+      background: #dc2626;
+      transform: scale(1.1);
+    }
+  }
+
+  .category-label {
+    font-size: 0.52rem;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+
+  .simulated-select {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(8, 9, 21, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    padding: 0.3rem 0.5rem;
+    font-size: 0.65rem;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 500;
+    height: 24px;
+
+    .select-arrow {
+      width: 10px;
+      height: 10px;
+      color: rgba(255, 255, 255, 0.5);
+    }
+  }
+
+  .portada-container {
+    height: 60px;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: rgba(8, 9, 21, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+
+    &.jacket-gradient {
+      background: linear-gradient(135deg, rgba(8, 9, 21, 0.95), rgba(59, 130, 246, 0.15));
+      color: #3b82f6;
+    }
+
+    &.sneaker-gradient {
+      background: linear-gradient(135deg, rgba(8, 9, 21, 0.95), rgba(0, 242, 254, 0.15));
+      color: #00f2fe;
+    }
+
+    &.tshirts-gradient {
+      background: linear-gradient(135deg, rgba(8, 9, 21, 0.95), rgba(138, 43, 226, 0.15));
+      color: #8a2be2;
+    }
+
+    .garment-svg {
+      width: 32px;
+      height: 32px;
+      opacity: 0.85;
+      filter: drop-shadow(0 2px 8px currentColor);
+    }
+  }
+
+  .btn-change {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 6px;
+    padding: 0.3rem;
+    font-size: 0.58rem;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-family);
+    height: 24px;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
   }
 }
 
@@ -799,56 +1000,56 @@
 
 // Bucle de Animación Keyframes
 @keyframes showVertexBrand {
-  0%, 45%, 100% {
+  0%, 30%, 66%, 96%, 100% {
     opacity: 1;
     transform: translate(-50%, 0);
   }
-  50%, 95% {
+  33%, 63% {
     opacity: 0;
     transform: translate(-50%, -5px);
   }
 }
 
 @keyframes showMiTiendaBrand {
-  0%, 45%, 100% {
+  0%, 30%, 66%, 100% {
     opacity: 0;
     transform: translate(-50%, 5px);
   }
-  50%, 95% {
+  33%, 63% {
     opacity: 1;
     transform: translate(-50%, 0);
   }
 }
 
 @keyframes showTest2User {
-  0%, 45%, 100% {
+  0%, 30%, 66%, 96%, 100% {
     opacity: 1;
     transform: translateY(0);
   }
-  50%, 95% {
+  33%, 63% {
     opacity: 0;
     transform: translateY(-5px);
   }
 }
 
 @keyframes showLeivalihueUser {
-  0%, 45%, 100% {
+  0%, 30%, 66%, 100% {
     opacity: 0;
     transform: translateY(5px);
   }
-  50%, 95% {
+  33%, 63% {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
 @keyframes activeDashboardItem {
-  0%, 45%, 100% {
+  0%, 30% {
     background: rgba(59, 130, 246, 0.12);
     border-color: rgba(59, 130, 246, 0.2);
     color: #3b82f6;
   }
-  50%, 95% {
+  33%, 100% {
     background: transparent;
     border-color: transparent;
     color: rgba(255, 255, 255, 0.45);
@@ -856,12 +1057,25 @@
 }
 
 @keyframes activePedidosItem {
-  0%, 45%, 100% {
+  0%, 30%, 66%, 100% {
     background: transparent;
     border-color: transparent;
     color: rgba(255, 255, 255, 0.45);
   }
-  50%, 95% {
+  33%, 63% {
+    background: rgba(59, 130, 246, 0.12);
+    border-color: rgba(59, 130, 246, 0.2);
+    color: #3b82f6;
+  }
+}
+
+@keyframes activeGestionhomeItem {
+  0%, 63%, 97%, 100% {
+    background: transparent;
+    border-color: transparent;
+    color: rgba(255, 255, 255, 0.45);
+  }
+  66%, 96% {
     background: rgba(59, 130, 246, 0.12);
     border-color: rgba(59, 130, 246, 0.2);
     color: #3b82f6;
@@ -869,32 +1083,35 @@
 }
 
 @keyframes showDashboardView {
-  0%, 45%, 100% {
+  0%, 30% {
     opacity: 1;
-    transform: scale(1);
     pointer-events: auto;
-    visibility: visible;
   }
-  50%, 95% {
+  33%, 100% {
     opacity: 0;
-    transform: scale(0.96);
     pointer-events: none;
-    visibility: hidden;
   }
 }
 
 @keyframes showPedidosView {
-  0%, 45%, 100% {
+  0%, 30%, 66%, 100% {
     opacity: 0;
-    transform: scale(0.96);
     pointer-events: none;
-    visibility: hidden;
   }
-  50%, 95% {
+  33%, 63% {
     opacity: 1;
-    transform: scale(1);
     pointer-events: auto;
-    visibility: visible;
+  }
+}
+
+@keyframes showGestionView {
+  0%, 63%, 97%, 100% {
+    opacity: 0;
+    pointer-events: none;
+  }
+  66%, 96% {
+    opacity: 1;
+    pointer-events: auto;
   }
 }
 
