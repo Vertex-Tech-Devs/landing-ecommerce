@@ -11,320 +11,347 @@
         <span>Tecnología de Vanguardia</span>
       </div>
       <h2 class="section-title">
-        Todo lo que necesitas para <span class="text-gradient">escalar al infinito</span>
+        Todo lo que necesitas para llevar <span class="text-gradient">tu negocio al siguiente nivel</span>
       </h2>
       <p class="section-subtitle">
-        Una infraestructura de clase mundial con herramientas avanzadas para optimizar tus conversiones, automatizar flujos de trabajo y proteger tu información.
+        Una plataforma premium diseñada para multiplicar tus ventas, automatizar el control de stock en tiempo real y gestionar tus pedidos de forma impecable.
       </p>
     </header>
     <!-- Bento Grid -->
     <div class="bento-grid">
       @for (feature of features(); track feature.id) {
-        <article [class]="['bento-card', feature.cardClass, feature.gridClass]">
-          <div class="card-glow-radial"></div>
-          <div class="card-inner">
-            <div class="card-info">
-              <div class="card-header-meta">
-                <div [class]="'feature-icon ' + feature.iconClass">
-                  @switch (feature.icon) {
-                    @case ('ai') {
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
-                        <line x1="12" y1="18" x2="12.01" y2="18" />
-                      </svg>
-                    }
-                    @case ('security') {
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <rect x="3" y="3" width="18" height="18" rx="2" />
-                        <path d="M9 3v18" />
-                        <path d="M3 9h6" />
-                        <path d="M3 15h6" />
-                        <path d="M13 9h4" />
-                        <path d="M13 15h4" />
-                      </svg>
-                    }
-                    @case ('integrations') {
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
-                        <line x1="1" y1="10" x2="23" y2="10"/>
-                      </svg>
-                    }
-                    @case ('analytics') {
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <circle cx="11" cy="11" r="8" />
-                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                      </svg>
-                    }
-                  }
+        @if (feature.id === 1) {
+          <article [class]="['bento-card', feature.cardClass, feature.gridClass]">
+            <div class="card-glow-radial"></div>
+            <div class="card-inner">
+              <div class="card-info">
+                <div class="card-header-meta">
+                  <div [class]="'feature-icon ' + feature.iconClass">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+                      <line x1="12" y1="18" x2="12.01" y2="18" />
+                    </svg>
+                  </div>
+                  <span [class]="'feature-badge ' + feature.badgeClass">{{ feature.badge }}</span>
                 </div>
-                <span [class]="'feature-badge ' + feature.badgeClass">{{ feature.badge }}</span>
+                <h3 class="card-title">Interfaz de Alta Gama</h3>
+                <p class="card-description">Vertex transforma tu tienda en una experiencia fluida, rápida y con navegación táctil adaptativa. Genera estatus y confianza inmediata en tus compradores desde cualquier dispositivo.</p>
               </div>
-              <h3 class="card-title">{{ feature.title }}</h3>
-              <p class="card-description">{{ feature.description }}</p>
+
+              <!-- Animación de Dispositivos Fluidos -->
+              <div class="card-visual">
+                <app-card-alta-gama></app-card-alta-gama>
+              </div>
             </div>
-            
-            @switch (feature.icon) {
-              @case ('ai') {
-                <div class="card-visual visual-mobile">
-                  <!-- Mobile frame mockup -->
-                  <div class="phone-mockup">
-                    <div class="phone-notch"></div>
-                    <div class="phone-header">
-                      <span class="phone-logo">VERTEX</span>
-                      <div class="cart-icon-container">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="cart-svg-icon">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+          </article>
+        } @else {
+          <article [class]="['bento-card', feature.cardClass, feature.gridClass]">
+            <div class="card-glow-radial"></div>
+            <div class="card-inner">
+              <div class="card-info">
+                <div class="card-header-meta">
+                  <div [class]="'feature-icon ' + feature.iconClass">
+                    @switch (feature.icon) {
+                      @case ('ai') {
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                          <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+                          <line x1="12" y1="18" x2="12.01" y2="18" />
                         </svg>
-                        <span class="cart-badge-count">0</span>
-                      </div>
-                    </div>
-                    
-                    <div class="phone-content-window">
-                      <div class="phone-carousel">
-                        <div class="carousel-track">
-                          <!-- Slide 1 -->
-                          <div class="carousel-item">
-                            <div class="item-img img-shoe-1"></div>
-                            <div class="item-info">
-                              <span class="item-brand">Adidas</span>
-                              <span class="item-name">Superstar Glow</span>
-                              <span class="item-price">$18.500</span>
-                              <button class="add-to-cart-btn">Agregar</button>
-                            </div>
-                          </div>
-                          <!-- Slide 2 -->
-                          <div class="carousel-item">
-                            <div class="item-img img-shoe-2"></div>
-                            <div class="item-info">
-                              <span class="item-brand">Nike</span>
-                              <span class="item-name">Air Max Tech</span>
-                              <span class="item-price">$22.000</span>
-                              <button class="add-to-cart-btn">Agregar</button>
-                            </div>
-                          </div>
-                          <!-- Slide 3 -->
-                          <div class="carousel-item">
-                            <div class="item-img img-shoe-3"></div>
-                            <div class="item-info">
-                              <span class="item-brand">Puma</span>
-                              <span class="item-name">RS-X Retro</span>
-                              <span class="item-price">$16.900</span>
-                              <button class="add-to-cart-btn">Agregar</button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <!-- Simulated Hand Cursor -->
-                    <div class="simulated-cursor"></div>
+                      }
+                      @case ('security') {
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                          <rect x="3" y="3" width="18" height="18" rx="2" />
+                          <path d="M9 3v18" />
+                          <path d="M3 9h6" />
+                          <path d="M3 15h6" />
+                          <path d="M13 9h4" />
+                          <path d="M13 15h4" />
+                        </svg>
+                      }
+                      @case ('integrations') {
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                          <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+                          <line x1="1" y1="10" x2="23" y2="10"/>
+                        </svg>
+                      }
+                      @case ('analytics') {
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                          <circle cx="11" cy="11" r="8" />
+                          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                        </svg>
+                      }
+                    }
                   </div>
+                  <span [class]="'feature-badge ' + feature.badgeClass">{{ feature.badge }}</span>
                 </div>
-              }
-              @case ('security') {
-                <div class="card-visual visual-cms">
-                  <div class="cms-container">
-                    <!-- Left: Admin Panel -->
-                    <div class="cms-panel admin-panel">
-                      <div class="panel-header">
-                        <span class="panel-dot"></span>
-                        <span class="panel-title">CMS Admin</span>
+                <h3 class="card-title">{{ feature.title }}</h3>
+                <p class="card-description">{{ feature.description }}</p>
+              </div>
+              
+              @switch (feature.icon) {
+                @case ('ai') {
+                  <div class="card-visual visual-mobile">
+                    <!-- Mobile frame mockup -->
+                    <div class="phone-mockup">
+                      <div class="phone-notch"></div>
+                      <div class="phone-header">
+                        <span class="phone-logo">VERTEX</span>
+                        <div class="cart-icon-container">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="cart-svg-icon">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                          </svg>
+                          <span class="cart-badge-count">0</span>
+                        </div>
                       </div>
-                      <div class="admin-form">
-                        <div class="form-group">
-                          <label>Producto</label>
-                          <div class="mock-input text-truncate">Remera Oversize</div>
-                        </div>
-                        <div class="form-group">
-                          <label>Precio</label>
-                          <div class="price-input-container">
-                            <span class="currency">$</span>
-                            <div class="mock-input price-value"></div>
-                          </div>
-                        </div>
-                        <div class="form-group upload-area">
-                          <div class="drop-zone">
-                            <svg class="upload-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                              <polyline points="17 8 12 3 7 8" />
-                              <line x1="12" y1="3" x2="12" y2="15" />
-                            </svg>
-                            <span class="drop-text">Arrastrar foto</span>
-                            <!-- Progress Bar -->
-                            <div class="upload-progress-bar">
-                              <div class="progress-fill"></div>
+                      
+                      <div class="phone-content-window">
+                        <div class="phone-carousel">
+                          <div class="carousel-track">
+                            <!-- Slide 1 -->
+                            <div class="carousel-item">
+                              <div class="item-img img-shoe-1"></div>
+                              <div class="item-info">
+                                <span class="item-brand">Adidas</span>
+                                <span class="item-name">Superstar Glow</span>
+                                <span class="item-price">$18.500</span>
+                                <button class="add-to-cart-btn">Agregar</button>
+                              </div>
                             </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <!-- Right: Mini Store Preview -->
-                    <div class="cms-panel store-preview">
-                      <div class="panel-header">
-                        <span class="store-url">/shop</span>
-                      </div>
-                      <div class="shop-grid">
-                        <div class="product-preview-card">
-                          <div class="product-img-container">
-                            <div class="product-img img-placeholder"></div>
-                            <div class="product-img img-uploaded"></div>
-                          </div>
-                          <div class="product-info-mock">
-                            <span class="product-title-mock text-truncate">Remera Oversize</span>
-                            <span class="product-price-mock"></span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <!-- Floating Uploading Card -->
-                    <div class="floating-upload-item">
-                      <div class="mini-card-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg>
-                      </div>
-                      <span>foto_prenda.jpg</span>
-                    </div>
-                  </div>
-                </div>
-              }
-              @case ('integrations') {
-                <div class="card-visual visual-mp-flow">
-                  <div class="mp-flow-container">
-                    
-                    <!-- Block 1: Product -->
-                    <div class="flow-block block-product">
-                      <div class="block-header">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="block-icon">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-                        </svg>
-                        <span class="block-title">Inventario</span>
-                      </div>
-                      <div class="stock-display">
-                        <span class="stock-label">Stock Real</span>
-                        <div class="stock-counter-wrapper">
-                          <span class="stock-count count-1">1 unidad</span>
-                          <span class="stock-count count-0">0 unidades</span>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <!-- Connection 1-2 -->
-                    <div class="flow-connector conn-1-2">
-                      <div class="connector-line"></div>
-                      <div class="flow-dot dot-forward"></div>
-                      <div class="flow-dot dot-backward"></div>
-                    </div>
-
-                    <!-- Block 2: Mercado Pago -->
-                    <div class="flow-block block-mp">
-                      <div class="block-header">
-                        <span class="mp-logo-text">mercado pago</span>
-                      </div>
-                      <div class="mp-status">
-                        <!-- Spinner -->
-                        <div class="mp-spinner"></div>
-                        <!-- Status Icons -->
-                        <div class="status-icons-wrapper">
-                          <svg class="status-icon icon-success" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
-                          </svg>
-                          <svg class="status-icon icon-error" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
-                          </svg>
-                        </div>
-                        <span class="mp-label"></span>
-                      </div>
-                    </div>
-
-                    <!-- Connection 2-3 -->
-                    <div class="flow-connector conn-2-3">
-                      <div class="connector-line"></div>
-                      <div class="flow-dot dot-forward"></div>
-                    </div>
-
-                    <!-- Block 3: Order -->
-                    <div class="flow-block block-order">
-                      <div class="block-header">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="block-icon">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                        </svg>
-                        <span class="block-title">Orden</span>
-                      </div>
-                      <div class="order-status">
-                        <span class="order-badge badge-pending">Pendiente</span>
-                        <span class="order-badge badge-approved">Confirmada</span>
-                        <span class="order-badge badge-cancelled">Rechazada</span>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-              }
-              @case ('analytics') {
-                <div class="card-visual visual-google">
-                  <!-- Mockup Google Browser -->
-                  <div class="google-browser">
-                    <div class="browser-header">
-                      <div class="dots">
-                        <span class="dot red"></span>
-                        <span class="dot yellow"></span>
-                        <span class="dot green"></span>
-                      </div>
-                      <div class="address-bar">https://google.com</div>
-                    </div>
-                    
-                    <div class="browser-body">
-                      <!-- Search Screen -->
-                      <div class="search-screen">
-                        <span class="google-logo">
-                          <span class="g-blue">G</span><span class="g-red">o</span><span class="g-yellow">o</span><span class="g-blue">g</span><span class="g-green">l</span><span class="g-red">e</span>
-                        </span>
-                        <div class="search-input-mock">
-                          <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z" clip-rule="evenodd" />
-                          </svg>
-                          <div class="typing-text-wrapper">
-                            <span class="typing-text">ropa de diseño</span>
-                          </div>
-                        </div>
-                        <div class="search-results">
-                          <div class="result-item">
-                            <div class="result-header">
-                              <span class="result-site">https://tienda.vertex.app</span>
-                              <span class="rank-badge">Nº 1 en Google</span>
+                            <!-- Slide 2 -->
+                            <div class="carousel-item">
+                              <div class="item-img img-shoe-2"></div>
+                              <div class="item-info">
+                                <span class="item-brand">Nike</span>
+                                <span class="item-name">Air Max Tech</span>
+                                <span class="item-price">$22.000</span>
+                                <button class="add-to-cart-btn">Agregar</button>
+                              </div>
                             </div>
-                            <h4 class="result-title">Tu Tienda Vertex - Moda Online</h4>
-                            <p class="result-snippet">Compra ropa de diseño y calzado con envíos inmediatos y cuotas sin interés...</p>
+                            <!-- Slide 3 -->
+                            <div class="carousel-item">
+                              <div class="item-img img-shoe-3"></div>
+                              <div class="item-info">
+                                <span class="item-brand">Puma</span>
+                                <span class="item-name">RS-X Retro</span>
+                                <span class="item-price">$16.900</span>
+                                <button class="add-to-cart-btn">Agregar</button>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
                       
-                      <!-- Store Screen (Revealed) -->
-                      <div class="store-screen">
-                        <div class="store-nav">
-                          <span class="store-logo">Vertex Store</span>
-                          <span class="speed-pill">✓ Carga instantánea: 0.2s</span>
+                      <!-- Simulated Hand Cursor -->
+                      <div class="simulated-cursor"></div>
+                    </div>
+                  </div>
+                }
+                @case ('security') {
+                  <div class="card-visual visual-cms">
+                    <div class="cms-container">
+                      <!-- Left: Admin Panel -->
+                      <div class="cms-panel admin-panel">
+                        <div class="panel-header">
+                          <span class="panel-dot"></span>
+                          <span class="panel-title">CMS Admin</span>
                         </div>
-                        <div class="store-hero">
-                          <div class="store-banner-glow"></div>
-                          <div class="store-grid">
-                            <div class="store-item-mock"></div>
-                            <div class="store-item-mock"></div>
-                            <div class="store-item-mock"></div>
+                        <div class="admin-form">
+                          <div class="form-group">
+                            <label>Producto</label>
+                            <div class="mock-input text-truncate">Remera Oversize</div>
+                          </div>
+                          <div class="form-group">
+                            <label>Precio</label>
+                            <div class="price-input-container">
+                              <span class="currency">$</span>
+                              <div class="mock-input price-value"></div>
+                            </div>
+                          </div>
+                          <div class="form-group upload-area">
+                            <div class="drop-zone">
+                              <svg class="upload-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                <polyline points="17 8 12 3 7 8" />
+                                <line x1="12" y1="3" x2="12" y2="15" />
+                              </svg>
+                              <span class="drop-text">Arrastrar foto</span>
+                              <!-- Progress Bar -->
+                              <div class="upload-progress-bar">
+                                <div class="progress-fill"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <!-- Right: Mini Store Preview -->
+                      <div class="cms-panel store-preview">
+                        <div class="panel-header">
+                          <span class="store-url">/shop</span>
+                        </div>
+                        <div class="shop-grid">
+                          <div class="product-preview-card">
+                            <div class="product-img-container">
+                              <div class="product-img img-placeholder"></div>
+                              <div class="product-img img-uploaded"></div>
+                            </div>
+                            <div class="product-info-mock">
+                              <span class="product-title-mock text-truncate">Remera Oversize</span>
+                              <span class="product-price-mock"></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <!-- Floating Uploading Card -->
+                      <div class="floating-upload-item">
+                        <div class="mini-card-icon">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                          </svg>
+                        </div>
+                        <span>foto_prenda.jpg</span>
+                      </div>
+                    </div>
+                  </div>
+                }
+                @case ('integrations') {
+                  <div class="card-visual visual-mp-flow">
+                    <div class="mp-flow-container">
+                      
+                      <!-- Block 1: Product -->
+                      <div class="flow-block block-product">
+                        <div class="block-header">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="block-icon">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                          </svg>
+                          <span class="block-title">Inventario</span>
+                        </div>
+                        <div class="stock-display">
+                          <span class="stock-label">Stock Real</span>
+                          <div class="stock-counter-wrapper">
+                            <span class="stock-count count-1">1 unidad</span>
+                            <span class="stock-count count-0">0 unidades</span>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <!-- Connection 1-2 -->
+                      <div class="flow-connector conn-1-2">
+                        <div class="connector-line"></div>
+                        <div class="flow-dot dot-forward"></div>
+                        <div class="flow-dot dot-backward"></div>
+                      </div>
+  
+                      <!-- Block 2: Mercado Pago -->
+                      <div class="flow-block block-mp">
+                        <div class="block-header">
+                          <span class="mp-logo-text">mercado pago</span>
+                        </div>
+                        <div class="mp-status">
+                          <!-- Spinner -->
+                          <div class="mp-spinner"></div>
+                          <!-- Status Icons -->
+                          <div class="status-icons-wrapper">
+                            <svg class="status-icon icon-success" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <svg class="status-icon icon-error" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                          </div>
+                          <span class="mp-label"></span>
+                        </div>
+                      </div>
+  
+                      <!-- Connection 2-3 -->
+                      <div class="flow-connector conn-2-3">
+                        <div class="connector-line"></div>
+                        <div class="flow-dot dot-forward"></div>
+                      </div>
+  
+                      <!-- Block 3: Order -->
+                      <div class="flow-block block-order">
+                        <div class="block-header">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="block-icon">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                          </svg>
+                          <span class="block-title">Orden</span>
+                        </div>
+                        <div class="order-status">
+                          <span class="order-badge badge-pending">Pendiente</span>
+                          <span class="order-badge badge-approved">Confirmada</span>
+                          <span class="order-badge badge-cancelled">Rechazada</span>
+                        </div>
+                      </div>
+  
+                    </div>
+                  </div>
+                }
+                @case ('analytics') {
+                  <div class="card-visual visual-google">
+                    <!-- Mockup Google Browser -->
+                    <div class="google-browser">
+                      <div class="browser-header">
+                        <div class="dots">
+                          <span class="dot red"></span>
+                          <span class="dot yellow"></span>
+                          <span class="dot green"></span>
+                        </div>
+                        <div class="address-bar">https://google.com</div>
+                      </div>
+                      
+                      <div class="browser-body">
+                        <!-- Search Screen -->
+                        <div class="search-screen">
+                          <span class="google-logo">
+                            <span class="g-blue">G</span><span class="g-red">o</span><span class="g-yellow">o</span><span class="g-blue">g</span><span class="g-green">l</span><span class="g-red">e</span>
+                          </span>
+                          <div class="search-input-mock">
+                            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                              <path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z" clip-rule="evenodd" />
+                            </svg>
+                            <div class="typing-text-wrapper">
+                              <span class="typing-text">ropa de diseño</span>
+                            </div>
+                          </div>
+                          <div class="search-results">
+                            <div class="result-item">
+                              <div class="result-header">
+                                <span class="result-site">https://tienda.vertex.app</span>
+                                <span class="rank-badge">Nº 1 en Google</span>
+                              </div>
+                              <h4 class="result-title">Tu Tienda Vertex - Moda Online</h4>
+                              <p class="result-snippet">Compra ropa de diseño y calzado con envíos inmediatos y cuotas sin interés...</p>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <!-- Store Screen (Revealed) -->
+                        <div class="store-screen">
+                          <div class="store-nav">
+                            <span class="store-logo">Vertex Store</span>
+                            <span class="speed-pill">✓ Carga instantánea: 0.2s</span>
+                          </div>
+                          <div class="store-hero">
+                            <div class="store-banner-glow"></div>
+                            <div class="store-grid">
+                              <div class="store-item-mock"></div>
+                              <div class="store-item-mock"></div>
+                              <div class="store-item-mock"></div>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-            }
-          }
-        </div>
-      </article>
-    }
+                }
+              }
+            </div>
+          </article>
+        }
+      }
+    
     </div>
   </div>
 </section>

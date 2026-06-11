@@ -1,5 +1,6 @@
 import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CardAltaGamaComponent } from './components/card-alta-gama/card-alta-gama.component';
 
 export interface FeatureItem {
   id: number;
@@ -16,7 +17,7 @@ export interface FeatureItem {
 @Component({
   selector: 'app-saas-features',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, CardAltaGamaComponent],
   templateUrl: './saas-features.component.html',
   styleUrl: './saas-features.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
